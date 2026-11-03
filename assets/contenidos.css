@@ -201,6 +201,7 @@
 .sub:hover { transform: translateY(-4px); color: var(--ink); }
 .sub-img { display: block; position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
 .sub-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ct-img img.img-completa, .sub-img img.img-completa, .fc-fig img.img-completa { object-fit: contain; background: #e8e4db; }
 .sub-img.tp { display: flex; background: var(--v100); color: var(--v900); }
 .sub-img.tp .tp-tipo { font-size: clamp(32px, 2.8vw, 44px); }
 .sub-body { padding: 20px 22px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
