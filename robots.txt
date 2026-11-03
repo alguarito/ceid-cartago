@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alguarito.github.io/ceid-cartago/sitemap.xml
+Sitemap: https://ceidcartago.com/sitemap.xml

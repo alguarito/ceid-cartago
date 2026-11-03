@@ -2,7 +2,7 @@
 
 Sitio del Centro de Estudios e Investigaciones Docentes (CEID) de la Subdirectiva SUTEV Cartago, Norte del Valle del Cauca.
 
-En línea: https://alguarito.github.io/ceid-cartago/
+En línea: https://ceidcartago.com/ (también responde https://alguarito.github.io/ceid-cartago/, que redirige al dominio)
 
 ## Qué contiene
 
