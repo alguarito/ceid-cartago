@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El CEID en el Estatuto del SUTEV · CEID Cartago</title>
+<meta name="description" content="El artículo 52 del Estatuto del SUTEV define el CEID y sus funciones; el sitio del CEID Cartago se organiza a partir de ellas. Texto vigente y propuesta de reforma.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/ceid-base.css">
+<style>
+/* Página «El CEID · Estatuto»: el artículo 52 vigente, el paso de sus
+   funciones a las seis secciones del sitio y la propuesta de reforma.
+   Texto verificado contra el PDF: ../estatuto/art52-vigente.md */
+/* Cabecera igual a la portada: «CEID Cartago.» grande y la información debajo. */
+.mast { padding-top: 8px; }
+.mast-word { font-size: clamp(90px, 30vw, 440px); line-height: .78; letter-spacing: -0.075em; font-weight: 600; margin-left: -0.04em;
+  display: flex; flex-wrap: wrap; align-items: baseline; }
+.mast-loc { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: .24em; letter-spacing: -0.01em; line-height: 1; margin-left: .08em; }
+.mast-dot { font-size: .4em; margin-left: .01em; }
+.mast-word .v { color: var(--v600); }
+.mast-row { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--ink); align-items: start; }
+.mast-row h1 { margin-top: 12px; font-size: clamp(36px, 4.4vw, 64px); line-height: 1; letter-spacing: -0.04em; font-weight: 600; }
+.mast-row h1 .it { color: var(--v700); }
+.mast-side p { font-size: 18px; line-height: 1.5; color: var(--ink-2); }
+.mast-side .actions { margin-top: 20px; display: flex; flex-wrap: nowrap; gap: 8px; }
+/* Dos botones en una sola fila: textos cortos y tamaño algo menor. */
+.mast-side .actions .btn { height: 48px; padding: 0 20px; font-size: 15px; }
+@media (max-width: 640px) { .mast-side .actions .btn { flex: 1 1 auto; height: 46px; padding: 0 14px; font-size: 14px; gap: 6px; } }
+.miga { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); }
+.miga a { color: var(--muted); }
+.ficha-doc { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 6px; }
+
+.section { margin-top: clamp(80px, 9vw, 130px); }
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 32px; }
+.section-head h2 { font-size: clamp(44px, 5.8vw, 84px); line-height: .95; letter-spacing: -0.05em; font-weight: 600; }
+.section-head h2 .it { color: var(--v700); }
+.section-head p { max-width: 440px; font-size: 18px; line-height: 1.5; color: var(--ink-2); }
+
+/* ---------- De funciones a secciones ---------- */
+.mapa { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); }
+.sec { border-radius: var(--r-md); background: var(--paper); padding: clamp(22px, 2.4vw, 32px); display: flex; flex-direction: column; gap: 16px; }
+.sec-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.sec-top .mono { color: var(--muted); }
+.sec h3 { font-size: clamp(28px, 2.6vw, 38px); line-height: 1; letter-spacing: -0.035em; font-weight: 600; }
+.sec .lits { display: flex; flex-wrap: wrap; gap: 6px; }
+.sec .del { font-size: 15.5px; line-height: 1.5; color: var(--ink-2); }
+.sec h4 { margin: 4px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; font-weight: 500; color: var(--muted); text-transform: none; }
+.sec ul { display: flex; flex-direction: column; gap: 6px; }
+.sec li { font-size: 15px; line-height: 1.4; padding-left: 16px; position: relative; }
+.sec li::before { content: ""; position: absolute; left: 0; top: .5em; width: 7px; height: 7px; border-radius: 999px; background: var(--v600); }
+.sec ul.falta li::before { background: transparent; border: 1.5px solid var(--line); }
+.sec ul.falta li { color: var(--ink-2); }
+.sec-ink { background: var(--ink); color: var(--on-ink); }
+.sec-ink .sec-top .mono, .sec-ink .del, .sec-ink h4, .sec-ink ul.falta li { color: var(--on-ink-2); }
+.sec-ink .pill-line { color: var(--on-ink); border-color: #3d4240; }
+
+/* ---------- Texto vigente ---------- */
+.texto { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 48px; }
+.texto-side { position: sticky; top: 104px; align-self: start; display: flex; flex-direction: column; gap: 16px; }
+.texto-side p { font-size: 16px; line-height: 1.5; color: var(--ink-2); }
+.leyenda { display: flex; flex-wrap: wrap; gap: 6px; }
+.art { border-radius: var(--r-md); background: var(--paper); padding: clamp(22px, 2.6vw, 40px); }
+.art-tit { font-size: clamp(20px, 1.8vw, 24px); line-height: 1.25; font-weight: 700; letter-spacing: -0.01em; }
+.art-intro { margin-top: 14px; font-size: 17px; line-height: 1.55; }
+.lit { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; padding: 16px 0; border-top: 1px solid var(--soft); }
+.lit:first-of-type { margin-top: 14px; }
+.lit .l { font-family: 'JetBrains Mono', monospace; font-size: 14px; color: var(--v700); font-weight: 500; padding-top: 2px; }
+.lit p { font-size: 16.5px; line-height: 1.55; color: var(--ink); }
+.lit .pill { margin-top: 8px; height: 26px; font-size: 11px; }
+.par { margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--ink); }
+.par p { font-size: 16.5px; line-height: 1.55; }
+.par p + p { margin-top: 14px; }
+.par .pill { height: 26px; font-size: 11px; margin-left: 4px; vertical-align: 2px; }
+.fuente { margin-top: 18px; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--muted); line-height: 1.5; }
+
+/* ---------- Propuesta de reforma ---------- */
+.reforma { border-radius: var(--r-lg); background: var(--v600); color: #fff; padding: clamp(24px, 3.6vw, 52px); display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 40px; }
+.reforma h2 { font-size: clamp(40px, 5vw, 72px); line-height: .95; letter-spacing: -0.045em; font-weight: 600; }
+.reforma p { font-size: 17px; line-height: 1.55; }
+.reforma .mono { color: #fff; opacity: .85; }
+.reforma-card { border-radius: 24px; background: var(--paper); color: var(--ink); padding: clamp(20px, 2.2vw, 30px); display: flex; flex-direction: column; gap: 0; align-self: start; }
+.reforma-card li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px solid var(--soft); font-size: 15px; line-height: 1.45; }
+.reforma-card li:first-child { border-top: 0; padding-top: 0; }
+.reforma-card .mono { color: var(--muted); font-size: 11.5px; padding-top: 2px; }
+.reforma .btn { margin-top: 22px; }
+
+@media (max-width: 1100px) {
+  .mast-row, .texto, .reforma { grid-template-columns: minmax(0, 1fr); gap: 24px; }
+  .texto-side { position: static; }
+  .mapa { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 640px) {
+  .section-head { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .mapa { grid-template-columns: minmax(0, 1fr); }
+  .lit { grid-template-columns: 26px minmax(0, 1fr); gap: 8px; }
+  .reforma-card li { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="nav">
+    <a class="brand" href="index.html">
+      <span class="sello"><img src="assets/logo-sutev.png" alt="Logo del SUTEV"></span>
+      <span class="brand-txt"><strong>CEID Cartago</strong><span>Subdirectiva SUTEV Cartago</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="formacion.html">Formación</a>
+      <a href="investigacion.html">Investigación</a>
+      <a href="publicaciones.html">Publicaciones</a>
+      <a href="epa.html">EPA y PEPA</a>
+      <a href="educacion-publica.html">Educación pública</a>
+      <a href="estatuto.html" aria-current="page">El CEID</a>
+    </nav>
+    <a class="btn btn-verde nav-cta" href="index.html#convocatorias">Convocatorias
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+    <button class="nav-toggle" aria-label="Abrir menú"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16M4 16h16"/></svg></button>
+  </header>
+
+  <section class="mast" aria-label="Encabezado">
+    <div class="mast-word" aria-hidden="true">CEID<span class="mast-loc">Cartago</span><span class="v mast-dot">.</span></div>
+    <div class="mast-row">
+      <div>
+        <span class="miga"><a href="index.html">Inicio</a> / El CEID / Estatuto</span>
+        <h1>El CEID en el <span class="it">Estatuto</span></h1>
+      </div>
+      <div class="mast-side">
+        <p>El artículo 52 del Estatuto del SUTEV define la secretaría del CEID y sus funciones: diecisiete literales y tres parágrafos. Este sitio se organiza a partir de ellas, en seis secciones.</p>
+        <div class="ficha-doc"><span class="pill pill-claro">Estatuto del SUTEV, 2026</span><span class="pill pill-line">Art. 52 · págs. 32 y 33</span></div>
+        <div class="actions">
+          <a class="btn btn-ink" href="assets/estatuto-sutev-2026.pdf" aria-label="Descargar el Estatuto del SUTEV en PDF"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>Estatuto (PDF)</a>
+          <a class="btn btn-line" href="#reforma">Propuesta de reforma</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="secciones">
+    <div class="section-head">
+      <h2>De funciones a <span class="it">secciones</span></h2>
+      <p>Cada sección reúne los literales que tratan el mismo tema. Debajo de cada una, lo que el CEID Cartago ya hizo y lo que el estatuto pide y aún falta.</p>
+    </div>
+    <div class="mapa">
+      <article class="sec">
+        <div class="sec-top"><span class="mono">01</span><span class="pill pill-verde">Lit. c · e · l · n · o</span></div>
+        <h3>Formación</h3>
+        <p class="del">Capacitación continua en pedagogía, tecnología y ciencias; diagnóstico de necesidades; evaluación de los programas; representación ante los comités territoriales de formación; acompañamiento a las escuelas normales.</p>
+        <h4>Hoy</h4>
+        <ul><li>Capacitación en IA, tres años seguidos (cuatro sesiones en 2026)</li><li>Laboratorio «El Plano del Minimalismo Digital»</li><li>Robótica educativa, en curso</li><li>Mesa Territorial de Capacitación</li></ul>
+        <h4>Falta</h4>
+        <ul class="falta"><li>Diagnóstico de necesidades de formación (lit. n)</li><li>Acompañamiento a las escuelas normales (lit. o)</li></ul>
+      </article>
+      <article class="sec">
+        <div class="sec-top"><span class="mono">02</span><span class="pill pill-verde">Lit. h · j</span></div>
+        <h3>Investigación</h3>
+        <p class="del">Participación de los docentes en investigaciones que fortalezcan la cultura investigativa; comité que pruebe los materiales didácticos en el aula.</p>
+        <h4>Hoy</h4>
+        <ul><li>Asistencia técnica gratuita a 22 tesis</li><li>Semilleros y 1.er Encuentro de Semilleros (2024)</li><li>Pan-STARRS (IASC/NASA) con el semillero Betelgeuse</li></ul>
+        <h4>Falta</h4>
+        <ul class="falta"><li>Comité de evaluación de materiales didácticos (lit. j)</li></ul>
+      </article>
+      <article class="sec">
+        <div class="sec-top"><span class="mono">03</span><span class="pill pill-verde">Lit. h · k · m</span></div>
+        <h3>Publicaciones</h3>
+        <p class="del">Publicaciones científicas y pedagógicas de los docentes; revista con estudios de caso e innovaciones; Centro de Documentación Histórica con archivos digitales.</p>
+        <h4>Hoy</h4>
+        <ul><li>Revista «Voces que Transforman», Fascículo 1</li><li>Guía de permisos y licencias (46 fuentes)</li><li>Informes y archivo abierto del CEID</li></ul>
+        <h4>Falta</h4>
+        <ul class="falta"><li>Periodicidad de la revista (el lit. k pide edición semestral)</li><li>Editorial institucional, en desarrollo</li></ul>
+      </article>
+      <article class="sec">
+        <div class="sec-top"><span class="mono">04</span><span class="pill pill-verde">Lit. p · q · par. 3</span></div>
+        <h3>EPA y PEPA</h3>
+        <p class="del">Evento anual en el que los docentes presentan sus proyectos pedagógicos, con incentivos como la publicación; Congreso Pedagógico anual; reconocimiento anual a proyectos innovadores.</p>
+        <h4>Hoy</h4>
+        <ul><li>8 EPAs curadas para el Congreso Pedagógico Nacional; FECODE seleccionó 3</li><li>«Voces que Transforman» publica las ocho</li></ul>
+        <h4>Falta</h4>
+        <ul class="falta"><li>Foro Municipal de EPAs, en construcción (lit. p)</li><li>Reconocimiento anual (par. 3)</li></ul>
+      </article>
+      <article class="sec">
+        <div class="sec-top"><span class="mono">05</span><span class="pill pill-verde">Lit. b · d · f · par. 2</span></div>
+        <h3>Educación pública</h3>
+        <p class="del">Retroalimentación continua con los docentes; campañas, foros y debates con propuestas; alianzas político-pedagógicas; campaña por el proyecto educativo de la Ley 115.</p>
+        <h4>Hoy</h4>
+        <ul><li>«Las grietas que ya estaban» e informe integrado del sismo</li></ul>
+        <h4>Falta</h4>
+        <ul class="falta"><li>Sistema de retroalimentación con los docentes (lit. b)</li><li>Propuestas municipales y nacionales; foros y debates (lit. d)</li></ul>
+      </article>
+      <article class="sec sec-ink">
+        <div class="sec-top"><span class="mono">06</span><span class="pill pill-verde">Encabezado · lit. a · g · i · par. 1</span></div>
+        <h3>El CEID</h3>
+        <p class="del">Qué es la secretaría; representación ante el CEID; criterios y método de trabajo con el equipo departamental; convenios; estructura.</p>
+        <h4>Hoy</h4>
+        <ul><li>Este artículo y la propuesta de reforma</li><li>Informes de gestión 2024-2026 y 2026</li><li>Ocho municipios de la subdirectiva</li></ul>
+        <h4>Falta</h4>
+        <ul class="falta"><li>Convenios firmados (lit. i)</li><li>Plan de acción anual (art. 42)</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="texto">
+    <div class="texto">
+      <div class="texto-side">
+        <span class="mono muted">Texto vigente</span>
+        <h2 class="section-head" style="display:block;margin:0"><span style="font-size:clamp(40px,4.6vw,68px);line-height:.95;letter-spacing:-0.05em;font-weight:600;display:block">Artículo <span class="it" style="color:var(--v700)">52</span></span></h2>
+        <p>Transcrito del Estatuto del SUTEV (2026), páginas 32 y 33, con la ortografía del original. Cada literal lleva la sección del sitio donde se cumple.</p>
+        <div class="leyenda"><span class="pill pill-line">Formación</span><span class="pill pill-line">Investigación</span><span class="pill pill-line">Publicaciones</span><span class="pill pill-line">EPA y PEPA</span><span class="pill pill-line">Educación pública</span><span class="pill pill-line">El CEID</span></div>
+      </div>
+      <article class="art">
+        <p class="art-tit">Artículo 52 º. SECRETARÍA DE ASUNTOS EDUCATIVOS PEDAGÓGICOS Y CIENTÍFICOS - CEID - ESCUELAS NORMALES.</p>
+        <p class="art-intro">Son funciones de la Secretaría de Asuntos Educativos Pedagógicos y Científicos y Escuelas Normales:</p>
+        <div class="lit"><span class="l">a)</span><div><p>Representar al SUTEV en el Centro de Estudios e Investigaciones Docentes - CEID -, tanto a nivel regional, nacional como internacional, fomentando la participación en alianzas estratégicas y eventos clave en el ámbito educativo global.</p><span class="pill pill-claro">El CEID</span></div></div>
+        <div class="lit"><span class="l">b)</span><div><p>Diseñar e implementar un sistema de retroalimentación continua con los docentes para estudiar, planificar y realizar campañas que promuevan el mejoramiento y actualización de sistemas, planes, programas y contenidos de la educación, basado en las necesidades y experiencias directas de los maestros.</p><span class="pill pill-claro">Educación pública</span></div></div>
+        <div class="lit"><span class="l">c)</span><div><p>Organizar programas de capacitación continua en pedagogía, tecnología y ciencias, en alianza con universidades y plataformas en línea, orientados a la cualificación de los maestros y trabajadores de la educación en áreas esenciales como pedagogía, ciencia y tecnología.</p><span class="pill pill-claro">Formación</span></div></div>
+        <div class="lit"><span class="l">d)</span><div><p>Ampliar el alcance de la defensa de la educación pública mediante campañas de sensibilización pública, foros y debates en los que se discutan problemáticas del sector y se desarrollen propuestas que fomenten una educación inclusiva y de calidad.</p><span class="pill pill-claro">Educación pública</span></div></div>
+        <div class="lit"><span class="l">e)</span><div><p>Fortalecer los equipos pedagógicos desde una perspectiva tanto pedagógica como política, mediante la organización de foros, talleres, seminarios y reuniones de evaluación periódica sobre la efectividad de los programas de formación en el aula.</p><span class="pill pill-claro">Formación</span></div></div>
+        <div class="lit"><span class="l">f)</span><div><p>Desarrollar estrategias que articulen los enfoques político y pedagógico para defender la educación pública de calidad, estableciendo relaciones de colaboración con actores externos (sociedad civil, empresas y universidades) que apoyen el frente político pedagógico.</p><span class="pill pill-claro">Educación pública</span></div></div>
+        <div class="lit"><span class="l">g)</span><div><p>Establecer criterios claros y metodologías definidas de trabajo con el director(a) del CEID y el equipo departamental para diseñar, ejecutar y evaluar los proyectos propuestos en función de los objetivos del sindicato.</p><span class="pill pill-claro">El CEID</span></div></div>
+        <div class="lit"><span class="l">h)</span><div><p>Aumentar la frecuencia de publicaciones científicas y pedagógicas, promoviendo la participación activa de docentes en investigaciones que fortalezcan la cultura investigativa dentro del sindicato.</p><span class="pill pill-claro">Publicaciones</span> <span class="pill pill-claro">Investigación</span></div></div>
+        <div class="lit"><span class="l">i)</span><div><p>Gestionar convenios interinstitucionales, tanto nacionales como internacionales, que apoyen la investigación, la cualificación y la actualización de los docentes, priorizando alianzas que proporcionen recursos y fondos para el desarrollo de la educación.</p><span class="pill pill-claro">El CEID</span></div></div>
+        <div class="lit"><span class="l">j)</span><div><p>Crear un comité de evaluación de materiales didácticos que invite a docentes de diversas áreas a probar y aportar retroalimentación sobre recursos pedagógicos en el aula antes de una distribución amplia.</p><span class="pill pill-claro">Investigación</span></div></div>
+        <div class="lit"><span class="l">k)</span><div><p>Diseñar y difundir la revista Correo Pedagógico, incluyendo estudios de caso, innovaciones pedagógicas y entrevistas con docentes destacados, con una edición semestral en formato digital de fácil acceso.</p><span class="pill pill-claro">Publicaciones</span></div></div>
+        <div class="lit"><span class="l">l)</span><div><p>Representar al magisterio ante los comités territoriales de cualificación y formación docente, asegurando que estos representantes reciban formación específica en políticas públicas y gestión educativa.</p><span class="pill pill-claro">Formación</span></div></div>
+        <div class="lit"><span class="l">m)</span><div><p>Modernizar y gestionar el Centro de Documentación Histórica del SUTEV a cargo del CEID, digitalizando archivos para facilitar el acceso a los documentos de investigación y educativos del sindicato.</p><span class="pill pill-claro">Publicaciones</span></div></div>
+        <div class="lit"><span class="l">n)</span><div><p>Crear y estructurar un Departamento de Formación e Investigación para diagnosticar las necesidades de capacitación en el sindicato, dirigiendo los recursos y esfuerzos hacia programas de formación continua en pedagogía, tecnología y ciencia.</p><span class="pill pill-claro">Formación</span></div></div>
+        <div class="lit"><span class="l">o)</span><div><p>Coordinar con las diferentes secretarías el acompañamiento a las escuelas normales en la creación de políticas públicas para la cualificación docente y la formación inicial, aplicando metodologías innovadoras en proyectos que sirvan de insumo para la discusión entre FECODE y el MEN sobre la estructuración de las escuelas normales.</p><span class="pill pill-claro">Formación</span></div></div>
+        <div class="lit"><span class="l">p)</span><div><p>Organizar un evento anual en el que los docentes presenten sus proyectos pedagógicos, con un sistema de incentivos y premios para los proyectos destacados, como oportunidades de publicación o participación en congresos educativos.</p><span class="pill pill-claro">EPA y PEPA</span></div></div>
+        <div class="lit"><span class="l">q)</span><div><p>Institucionalizar un Congreso Pedagógico anual y crear espacios culturales como cine foros para fortalecer la formación sindical.</p><span class="pill pill-claro">EPA y PEPA</span></div></div>
+        <div class="par">
+          <p><strong>Parágrafo 1:</strong> La Secretaría de Asuntos Educativos Pedagógicos y Científicos - CEID - y Escuelas Normales para efectos de su normal funcionamiento contará con la siguiente estructura: Un (1) Director, un (1) Coordinador Departamental elegido en la Asamblea Departamental de esta Secretaría y un Equipo Operativo elegido por el director o directora, el equipo zonal elegido por la asamblea departamental del área metropolitana y el equipo departamental, que estará conformado por un representante de cada GAGEM. <span class="pill pill-claro">El CEID</span></p>
+          <p><strong>Parágrafo 2:</strong> Impulsar en el magisterio de Cali y del resto del Departamento del Valle, una campaña pedagógica educativa, con eventos, actividades y medidas correspondientes dirigidas al rescate, fomento, aplicación, defensa y desarrollo del proyecto educativo y/o modelo pedagógico consagrado en la Ley General de Educación o Ley 115 de 1994. <span class="pill pill-claro">Educación pública</span></p>
+          <p><strong>Parágrafo 3:</strong> Realizar un reconocimiento anual dirigido a docentes del sector oficial afiliados al sindicato, que se destaquen en la implementación de proyectos pedagógicos innovadores y significativos. <span class="pill pill-claro">EPA y PEPA</span></p>
+        </div>
+        <p class="fuente">Fuente: Estatuto del SUTEV (2026), págs. 32-33. Transcripción verificada contra el documento.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section reforma" id="reforma">
+    <div>
+      <span class="mono">Propuesta de reforma · 30 de octubre de 2026</span>
+      <h2 style="margin-top:12px">Propuesta de reforma del artículo 52</h2>
+      <p style="margin-top:18px">El secretario del CEID de Cartago preparó una propuesta de reforma del artículo, lista para radicar ante la Junta Directiva Central. Si se aprueba, las seis secciones del sitio se mantienen, porque agrupan los mismos temas.</p>
+      <a class="btn btn-paper" href="assets/propuesta-reforma-art52.pdf">Leer la propuesta (PDF, 22 págs.)</a>
+    </div>
+    <ul class="reforma-card">
+      <li><span class="mono">Funciones</span><span>De diecisiete literales a doce; se funden los repetidos y solo se suprimen los cine foros.</span></li>
+      <li><span class="mono">Nombre</span><span>Un solo nombre para la secretaría: CEID, articulado al CEID de FECODE.</span></li>
+      <li><span class="mono">Estructura</span><span>Zonas y subdirectivas en lugar de los GAGEM, que ya no existen.</span></li>
+      <li><span class="mono">Nuevo</span><span>Criterios de alianza, coordinación con las demás secretarías, plan y rendición de cuentas a los afiliados, y reglamento del CEID.</span></li>
+    </ul>
+  </section>
+
+  <footer class="footer"><span>CEID · Subdirectiva SUTEV Cartago · Norte del Valle del Cauca</span><span><a href="estatuto.html">Art. 52 del Estatuto del SUTEV</a> · <a href="archivo.html">Archivo</a></span></footer>
+</div>
+
+</body>
+</html>

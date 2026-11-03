@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CEID Cartago · Centro de Estudios e Investigaciones Docentes</title>
+<meta name="description" content="Centro de Estudios e Investigaciones Docentes de la Subdirectiva SUTEV Cartago: formación, investigación, publicaciones, EPA y PEPA y educación pública en el Norte del Valle.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/ceid-base.css">
+<style>
+/* Propuesta A+B+D — de la B: el logotipo tipográfico y el archivo en lista.
+   De la A: las cifras en tarjetas, las seis puertas, la repisa y el bloque verde.
+   De la D: el buscador con las seis tareas, la agenda con convocatorias y el aviso
+   para recibir la agenda en el celular. */
+
+/* ---------- Tareas (D) ---------- */
+.buscar { display: flex; align-items: center; gap: 8px; padding: 8px; border-radius: 999px; background: var(--paper); max-width: 860px; }
+.buscar svg { flex-shrink: 0; margin-left: 14px; color: var(--muted); }
+.buscar input { flex: 1; min-width: 0; height: 48px; border: 0; background: transparent; font: inherit; font-size: 17px; color: var(--ink); outline: none; }
+.buscar input::placeholder { color: var(--muted); }
+.buscar .btn { height: 48px; }
+.sugerencias { margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap; }
+.tareas { margin-top: 24px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); }
+.tarea { display: flex; flex-direction: column; justify-content: space-between; gap: 22px; min-height: 180px; border-radius: 24px; background: var(--paper); padding: 22px 24px; text-decoration: none; color: var(--ink); transition: transform .35s var(--ease), background-color .25s; }
+.tarea:hover { transform: translateY(-3px); background: var(--v50); color: var(--ink); }
+.tarea-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+.tarea h3 { font-size: clamp(23px, 2.1vw, 30px); line-height: 1.08; letter-spacing: -0.025em; font-weight: 600; }
+.tarea .mono { color: var(--muted); font-size: 12px; }
+.tarea .sub { display: block; margin-top: 6px; }
+.tarea-verde { background: var(--v600); color: #fff; }
+.tarea-verde:hover { background: var(--v700); color: #fff; }
+.tarea.tarea-verde .mono { color: #fff; }
+
+/* ---------- Agenda y convocatorias (D) ---------- */
+.doble { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: var(--gap); }
+.bloque { border-radius: var(--r-md); background: var(--paper); padding: clamp(22px, 2.6vw, 36px); }
+.ev { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 18px; padding: 18px 0; border-top: 1px solid var(--soft); align-items: start; }
+.ev:first-child { border-top: 0; padding-top: 0; }
+.ev-fecha { border-radius: 18px; background: var(--ground); padding: 12px; text-align: center; display: flex; flex-direction: column; gap: 2px; }
+.ev-fecha img { width: 100%; aspect-ratio: 4 / 3; border-radius: 6px; object-fit: cover; margin-bottom: 4px; }
+.ev-fecha b { font-size: 15px; font-weight: 600; line-height: 1.15; }
+.ev-fecha span { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted); }
+.ev h3 { font-size: 20px; line-height: 1.25; font-weight: 600; letter-spacing: -0.015em; }
+.ev p { margin-top: 6px; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+.ev .pill, .ev .prov { margin-top: 10px; }
+.aviso-wa { border-radius: var(--r-md); background: var(--v100); padding: clamp(22px, 2.6vw, 36px); display: flex; flex-direction: column; justify-content: space-between; gap: 24px; }
+.aviso-wa h3 { font-size: clamp(30px, 3vw, 44px); line-height: 1; letter-spacing: -0.035em; font-weight: 600; color: var(--v900); }
+.aviso-wa p { margin-top: 10px; color: var(--v800); font-size: 16px; line-height: 1.5; }
+.aviso-wa .btn { align-self: flex-start; }
+
+/* ---------- Cabecera (B) ---------- */
+.mast { padding-top: 8px; }
+.mast-word { font-size: clamp(90px, 30vw, 440px); line-height: .78; letter-spacing: -0.075em; font-weight: 600; margin-left: -0.04em;
+  display: flex; flex-wrap: wrap; align-items: baseline; }
+/* «Cartago» pequeño en Instrument Serif cursiva, al pie de «CEID», y el punto verde como cierre. */
+.mast-loc { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; font-size: .24em; letter-spacing: -0.01em; line-height: 1; margin-left: .08em; }
+.mast-dot { font-size: .4em; margin-left: .01em; }
+.mast-word .v { color: var(--v600); }
+.mast-row { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--ink); align-items: start; }
+.mast-row h1 { font-size: clamp(32px, 3.6vw, 54px); line-height: 1.02; letter-spacing: -0.035em; font-weight: 600; }
+.mast-row h1 .it { color: var(--v700); }
+.mast-side { display: flex; flex-direction: column; gap: 18px; }
+.mast-side p { font-size: 18px; line-height: 1.5; color: var(--ink-2); }
+.actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+/* ---------- Cifras (A) ---------- */
+.stats { margin-top: clamp(48px, 6vw, 80px); display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: var(--gap); }
+.stat { grid-column: span 4; min-height: 210px; border-radius: var(--r-md); background: var(--paper); padding: clamp(24px, 2.4vw, 36px); display: flex; flex-direction: column; justify-content: space-between; gap: 16px; }
+.stat-num { font-size: clamp(56px, 6vw, 84px); line-height: .9; letter-spacing: -0.05em; font-weight: 600; font-variant-numeric: tabular-nums; }
+.stat p { font-size: 17px; line-height: 1.4; color: var(--ink-2); max-width: 340px; }
+.stat .mono { color: var(--muted); }
+.stat-verde { background: var(--v600); color: #fff; }
+.stat.stat-verde p, .stat.stat-verde .mono { color: #fff; }
+.stat-ink { background: var(--ink); color: var(--on-ink); }
+.stat.stat-ink p, .stat.stat-ink .mono { color: var(--on-ink-2); }
+
+/* ---------- Encabezados de sección (A) ---------- */
+.section { margin-top: clamp(96px, 11vw, 150px); }
+.section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 36px; }
+.section-head h2 { font-size: clamp(48px, 6.4vw, 92px); line-height: .95; letter-spacing: -0.05em; font-weight: 600; }
+.section-head h2 .it { color: var(--v700); }
+.section-head p { max-width: 400px; font-size: 18px; line-height: 1.5; color: var(--ink-2); }
+.section-head .link { font-size: 16px; font-weight: 600; white-space: nowrap; }
+
+/* ---------- Archivo en lista (B) ---------- */
+.archivo { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 48px; }
+.archivo-side { position: sticky; top: 104px; align-self: start; display: flex; flex-direction: column; gap: 18px; }
+.archivo-side p { font-size: 17px; line-height: 1.5; color: var(--ink-2); max-width: 360px; }
+.filtros { display: flex; flex-wrap: wrap; gap: 8px; }
+.filtros button { font: inherit; cursor: pointer; border: 1px solid var(--line); background: transparent; height: 36px; padding: 0 14px; border-radius: 999px; font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink); }
+.filtros button[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); border-color: var(--ink); }
+.lista { border-top: 1px solid var(--ink); }
+.fila { display: grid; grid-template-columns: clamp(76px, 10vw, 134px) minmax(0, 1fr) 140px 44px; gap: 20px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--line); text-decoration: none; color: var(--ink); transition: background-color .2s, padding .3s var(--ease); }
+.fila:hover { background: var(--paper); padding-left: 14px; padding-right: 14px; border-radius: 16px; color: var(--ink); }
+.miniatura-fila { position: relative; display: block; }
+.miniatura-fila img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 9px; }
+.fila .n { position: absolute; bottom: 3px; left: 3px; padding: 1px 4px; background: var(--paper); border-radius: 4px; font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.fila h3 { font-size: clamp(20px, 1.9vw, 27px); line-height: 1.15; letter-spacing: -0.02em; font-weight: 600; }
+.fila .meta { margin-top: 6px; display: flex; flex-wrap: wrap; gap: 6px; }
+.fila .fecha { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--ink-2); text-align: right; }
+.fila .go { width: 40px; height: 40px; }
+.ver-todo { display: flex; justify-content: flex-end; margin-top: 20px; }
+
+/* ---------- Seis puertas (A) ---------- */
+.puertas { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: minmax(260px, auto); gap: var(--gap); }
+.card { display: flex; flex-direction: column; justify-content: space-between; gap: 24px; border-radius: var(--r-md); padding: clamp(24px, 2.5vw, 36px); background: var(--paper); color: var(--ink); text-decoration: none; transition: transform .4s var(--ease); }
+.card:hover { transform: translateY(-4px); color: var(--ink); }
+.puertas .card > img { width: 100%; aspect-ratio: 2/1; object-fit: cover; border-radius: 12px; }
+.card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.card-top .mono { color: var(--muted); font-size: 14px; }
+.card h3 { font-size: clamp(26px, 2.5vw, 36px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600; }
+.card p { margin-top: 12px; font-size: 16px; line-height: 1.5; color: var(--ink-2); }
+.card-ink { background: var(--ink); color: var(--on-ink); }
+.card-ink:hover { color: var(--on-ink); }
+.card-ink .card-top .mono, .card-ink p { color: var(--on-ink-2); }
+.card-soft { background: var(--soft); }
+.lit-pill { margin-bottom: 14px; height: 26px; font-size: 11px; }
+.card-ink .lit-pill { background: #2a2e2c; color: var(--v300); }
+
+/* ---------- Repisa (A) ---------- */
+.shelf { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: var(--gap); }
+.book { display: flex; flex-direction: column; gap: 8px; text-decoration: none; color: var(--ink); }
+.book img, .book .cover { width: 100%; aspect-ratio: 7 / 10; object-fit: cover; border-radius: 14px; transition: transform .4s var(--ease); }
+.book:hover img, .book:hover .cover { transform: translateY(-6px); }
+.book .cover { display: flex; flex-direction: column; justify-content: space-between; padding: 14px; }
+.cover-voces { background: var(--v600); color: #fff; }
+.cover-guia { background: var(--ink); color: var(--on-ink); }
+.cover strong { font-size: 19px; line-height: 1.05; letter-spacing: -0.02em; font-weight: 600; }
+.book-title { font-size: 15px; font-weight: 600; line-height: 1.3; }
+.book .mono { color: var(--muted); font-size: 11px; }
+.book .cover .mono { color: inherit; opacity: .85; }
+
+/* ---------- Bloque verde (A) ---------- */
+.llamado { margin-top: clamp(96px, 11vw, 150px); border-radius: var(--r-lg); background: var(--v600); color: #fff; padding: clamp(28px, 4.4vw, 64px); display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: 56px; }
+.llamado-txt { display: flex; flex-direction: column; justify-content: space-between; gap: 32px; }
+.llamado h2 { font-size: clamp(52px, 7.6vw, 112px); line-height: .9; letter-spacing: -0.055em; font-weight: 600; }
+.llamado-txt p { font-size: clamp(16px, 1.4vw, 20px); line-height: 1.5; max-width: 480px; }
+.llamado-card { border-radius: 24px; background: var(--paper); color: var(--ink); padding: clamp(22px, 2.2vw, 32px); align-self: end; }
+.llamado-card li { padding: 16px 0; border-top: 1px solid var(--soft); display: flex; flex-direction: column; gap: 6px; }
+.llamado-card li:first-child { border-top: 0; padding-top: 4px; }
+.llamado-card a { font-size: 19px; font-weight: 600; color: var(--ink); }
+.llamado-card .mono { color: var(--muted); }
+
+@media (max-width: 1100px) {
+  .mast-row, .archivo, .llamado { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .archivo-side { position: static; }
+  .stat { grid-column: span 6; }
+  .stat:last-child { grid-column: span 12; }
+  .puertas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .shelf { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .tareas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .doble { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 640px) {
+  /* Píldoras largas (agenda y «Lo último»): en el celular pueden partirse en dos líneas. */
+  .fila .meta .pill, .ev .pill { white-space: normal; height: auto; min-height: 26px; padding: 4px 10px; line-height: 1.3; }
+  .stat, .stat:last-child { grid-column: span 12; min-height: 0; }
+  .section-head { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .fila { grid-template-columns: 65px minmax(0, 1fr) 40px; gap: 12px; }
+  .fila .fecha { display: none; }
+  .puertas { grid-template-columns: minmax(0, 1fr); grid-auto-rows: auto; }
+  .shelf { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 42%; overflow-x: auto; scroll-snap-type: x mandatory; margin-right: calc(-1 * var(--gutter)); padding-right: var(--gutter); padding-bottom: 8px; }
+  .book { scroll-snap-align: start; }
+  .buscar .btn { display: none; }
+  .buscar input { font-size: 16px; }
+  .tareas { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  .tarea { min-height: 0; flex-direction: row; align-items: center; padding: 16px 16px 16px 20px; gap: 14px; }
+  .tarea-top { order: 2; }
+  .tarea-top .mono { display: none; }
+  .tarea h3 { font-size: 21px; }
+  .ev { grid-template-columns: 76px minmax(0, 1fr); gap: 14px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="nav">
+    <a class="brand" href="index.html">
+      <span class="sello"><img src="assets/logo-sutev.png" alt="Logo del SUTEV"></span>
+      <span class="brand-txt"><strong>CEID Cartago</strong><span>Subdirectiva SUTEV Cartago</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Principal">
+      <a href="formacion.html">Formación</a>
+      <a href="investigacion.html">Investigación</a>
+      <a href="publicaciones.html">Publicaciones</a>
+      <a href="epa.html">EPA y PEPA</a>
+      <a href="educacion-publica.html">Educación pública</a>
+      <a href="estatuto.html">El CEID</a>
+    </nav>
+    <a class="btn btn-verde nav-cta" href="#convocatorias">Convocatorias
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a>
+    <button class="nav-toggle" aria-label="Abrir menú"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16M4 16h16"/></svg></button>
+  </header>
+
+  <section class="mast" aria-label="Portada">
+    <div class="mast-word" aria-hidden="true">CEID<span class="mast-loc">Cartago</span><span class="v mast-dot">.</span></div>
+    <div class="mast-row">
+      <h1>Centro de Estudios e <span class="it">Investigaciones</span> Docentes de la Subdirectiva SUTEV Cartago</h1>
+      <div class="mast-side">
+        <p>Instancia pedagógica, investigativa y científica del SUTEV (art. 52 del Estatuto). Forma, acompaña y publica con los docentes de Cartago, Ansermanuevo, Alcalá, Ulloa, El Águila, El Cairo, Argelia y Toro.</p>
+        <div class="actions">
+          <a class="btn btn-verde" href="#ultimo">Ver lo último</a>
+          <a class="btn btn-line" href="asistencia-tecnica-tesis.html">Pedir asistencia técnica</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats" aria-label="El CEID en cifras">
+    <div class="stat">
+      <span class="mono">Asistencia técnica gratuita</span>
+      <div><div class="stat-num">22</div><p>tesis de docentes y de sus familiares: 3 de doctorado, 17 de maestría y 2 de pregrado.</p></div>
+    </div>
+    <div class="stat stat-verde">
+      <span class="mono">Congreso Pedagógico Nacional, 2025</span>
+      <div><div class="stat-num">3 de 8</div><p>experiencias pedagógicas del Norte del Valle, curadas por el CEID, seleccionadas por FECODE.</p></div>
+    </div>
+    <div class="stat stat-ink">
+      <span class="mono">Gestión 2026</span>
+      <div><div class="stat-num">15</div><p>actividades directas de la secretaría en cinco frentes de trabajo.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="tareas">
+    <div class="section-head">
+      <h2>¿Qué <span class="it">necesitas</span>?</h2>
+      <p>Lo que el docente viene a hacer, a un clic. Cada tarea lleva a su ficha, a las convocatorias o al archivo.</p>
+    </div>
+    <div class="tareas">
+      <a class="tarea tarea-verde" href="#convocatorias">
+        <div class="tarea-top"><span class="mono">Convocatorias</span><span class="go go-paper">↗</span></div>
+        <div><h3>Ver las convocatorias abiertas</h3><span class="mono sub">Con fecha de cierre y requisitos</span></div>
+      </a>
+      <a class="tarea" href="epa.html">
+        <div class="tarea-top"><span class="mono">EPA y PEPA</span><span class="go">↗</span></div>
+        <div><h3>Ver las experiencias pedagógicas</h3><span class="mono sub">EPA y PEPA del Norte del Valle</span></div>
+      </a>
+      <a class="tarea" href="asistencia-tecnica-tesis.html">
+        <div class="tarea-top"><span class="mono">Investigación</span><span class="go">↗</span></div>
+        <div><h3>Pedir asistencia para mi tesis</h3><span class="mono sub">Gratuita, sin certificación</span></div>
+      </a>
+      <a class="tarea" href="voces-que-transforman-fasciculo-1.html">
+        <div class="tarea-top"><span class="mono">Revista</span><span class="go">↗</span></div>
+        <div><h3>Leer «Voces que Transforman»</h3><span class="mono sub">Fascículo 1 · 8 experiencias</span></div>
+      </a>
+      <a class="tarea" href="guia-permisos-licencias-bienestar.html">
+        <div class="tarea-top"><span class="mono">Guía del CEID</span><span class="go">↗</span></div>
+        <div><h3>Consultar permisos y licencias</h3><span class="mono sub">46 fuentes normativas</span></div>
+      </a>
+      <a class="tarea" href="archivo.html">
+        <div class="tarea-top"><span class="mono">Informes y propuestas</span><span class="go">↗</span></div>
+        <div><h3>Leer informes y propuestas</h3><span class="mono sub">Gestión 2026 · sismo · art. 52</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section" id="ultimo">
+    <div class="section-head">
+      <h2>Lo <span class="it">último</span></h2>
+      <a class="link" href="archivo.html">Todo el archivo →</a>
+    </div>
+    <div class="archivo">
+      <div class="archivo-side">
+        <p>Noticias, actividades, informes, propuestas y publicaciones en un solo archivo, por fecha. Cada ficha lleva su tipo y su municipio.</p>
+      </div>
+      <div>
+        <div class="lista">
+          <a class="fila" href="informe-gestion-ceid-cartago-2026.html">
+            <span class="miniatura-fila"><img src="assets/img/informe-gestion-ceid-cartago-2026.webp" alt="" loading="lazy"><span class="n">01</span></span>
+            <div><h3>Informe de gestión del CEID Cartago 2026</h3><div class="meta"><span class="pill pill-claro">Informe</span><span class="pill pill-line">15 directas · 16 indirectas</span></div></div>
+            <span class="fecha">nov. 2026</span><span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+          </a>
+          <a class="fila" href="propuesta-reforma-articulo-52.html">
+            <span class="miniatura-fila"><img src="assets/img/propuesta-reforma-articulo-52.webp" alt="" loading="lazy"><span class="n">02</span></span>
+            <div><h3>Propuesta de reforma del artículo 52 del Estatuto</h3><div class="meta"><span class="pill pill-claro">Propuesta · estatuto</span><span class="pill pill-line">Lista para radicar</span></div></div>
+            <span class="fecha">30 oct. 2026</span><span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+          </a>
+          <a class="fila" href="las-grietas-que-ya-estaban.html">
+            <span class="miniatura-fila"><img src="assets/img/las-grietas-que-ya-estaban.webp" alt="" loading="lazy"><span class="n">03</span></span>
+            <div><h3>«Las grietas que ya estaban»: datos del sismo del 10 de agosto</h3><div class="meta"><span class="pill pill-verde">Informe · Cartago</span><span class="pill pill-line">11 de 12 instituciones · 38 sedes</span></div></div>
+            <span class="fecha">14 ago. 2026</span><span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+          </a>
+          <a class="fila" href="capacitacion-docente-ia-2026.html">
+            <span class="miniatura-fila"><img src="assets/img/capacitacion-docente-ia-2026.webp" alt="" loading="lazy"><span class="n">04</span></span>
+            <div><h3>Capacitación docente en IA: cuatro sesiones con su guía metodológica</h3><div class="meta"><span class="pill pill-claro">Actividad desarrollada</span><span class="pill pill-line">IA · minimalismo digital · ConciencIA</span></div></div>
+            <span class="fecha">2026</span><span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+          </a>
+          <a class="fila" href="voces-que-transforman-fasciculo-1.html">
+            <span class="miniatura-fila"><img src="assets/img/voces-que-transforman-fasciculo-1.webp" alt="" loading="lazy"><span class="n">05</span></span>
+            <div><h3>Voces que Transforman, Fascículo 1</h3><div class="meta"><span class="pill pill-claro">Revista</span><span class="pill pill-line">8 experiencias pedagógicas</span></div></div>
+            <span class="fecha">2026</span><span class="go"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+          </a>
+        </div>
+        <div class="ver-todo"><a class="btn btn-ink" href="archivo.html">Ver todo el archivo</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="convocatorias">
+    <div class="section-head">
+      <h2>Agenda y <span class="it">convocatorias</span></h2>
+      <a class="link" href="convocatorias.html">Ver todas →</a>
+    </div>
+    <div class="doble">
+      <div class="bloque">
+        <div class="ev">
+          <div class="ev-fecha"><img src="assets/img/foro-municipal-epas.webp" alt="" loading="lazy"><b>Fecha</b><span>por confirmar</span></div>
+          <div><h3>Foro Municipal de EPAs</h3><p>Socialización de las experiencias pedagógicas acompañadas por el CEID.</p><span class="pill pill-ink">Convocatoria · en construcción</span></div>
+        </div>
+        <div class="ev">
+          <div class="ev-fecha"><img src="assets/img/robotica-educativa.webp" alt="" loading="lazy"><b>En curso</b><span>2026</span></div>
+          <div><h3>Robótica educativa</h3><p>Proceso que convoca Ecosistemas Digitales para la Educación Posmedia y certifica la Universidad del Valle.</p><span class="pill pill-claro">Cierre y certificación</span></div>
+        </div>
+        <div class="ev">
+          <div class="ev-fecha"><img src="assets/img/capacitacion-docente-ia-2026.webp" alt="" loading="lazy"><b>Fecha</b><span>por confirmar</span></div>
+          <div><h3>Mesa Territorial de Capacitación</h3><p>Próxima sesión con participación del CEID.</p><span class="pill pill-line">Fecha por confirmar</span></div>
+        </div>
+      </div>
+      <div class="aviso-wa">
+        <div><h3>Todas las convocatorias</h3><p>Abiertas, próximas y cerradas, cada una con su fecha de cierre y sus requisitos.</p></div>
+        <a class="btn btn-verde" href="convocatorias.html">Ver convocatorias</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="puertas">
+    <div class="section-head">
+      <h2>Seis secciones, según el <span class="it">art. 52</span></h2>
+      <p>El Estatuto del SUTEV define las funciones del CEID y el sitio se ordena por ellas. <a href="estatuto.html">Ver el artículo y su análisis →</a></p>
+    </div>
+    <div class="puertas">
+      <a class="card" href="formacion.html">
+        <img src="assets/img/capacitacion-docente-ia-2026.webp" alt="" loading="lazy">
+        <div class="card-top"><span class="mono">01. Formación</span><span class="go go-verde"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+        <div><span class="pill pill-claro lit-pill">Art. 52, lit. c · e · l · n · o</span><h3>Capacitación continua y formación inicial</h3><p>Capacitación en IA, Laboratorio de Minimalismo Digital, robótica educativa y Mesa Territorial de Capacitación.</p></div>
+      </a>
+      <a class="card" href="investigacion.html">
+        <img src="assets/img/asistencia-tecnica-tesis.webp" alt="" loading="lazy">
+        <div class="card-top"><span class="mono">02. Investigación</span><span class="go go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+        <div><span class="pill pill-claro lit-pill">Art. 52, lit. h · j</span><h3>Docentes que investigan</h3><p>Asistencia técnica gratuita a 22 tesis, semilleros y ciencia ciudadana.</p></div>
+      </a>
+      <a class="card card-soft" href="publicaciones.html">
+        <img src="assets/img/voces-que-transforman-fasciculo-1.webp" alt="" loading="lazy">
+        <div class="card-top"><span class="mono">03. Publicaciones</span><span class="go go-paper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+        <div><span class="pill pill-claro lit-pill">Art. 52, lit. h · k · m</span><h3>Revista, libros, informes y archivo</h3><p>«Voces que Transforman», la guía de permisos y el archivo abierto del CEID.</p></div>
+      </a>
+      <a class="card card-ink" href="epa.html">
+        <img src="assets/img/epas-congreso-pedagogico-nacional-2025.webp" alt="" loading="lazy">
+        <div class="card-top"><span class="mono">04. EPA y PEPA</span><span class="go go-verde"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+        <div><span class="pill pill-claro lit-pill">Art. 52, lit. p · q · par. 3</span><h3>Proyectos pedagógicos, Congreso y reconocimiento</h3><p>8 EPAs curadas para el Congreso Pedagógico Nacional; FECODE seleccionó 3. Foro Municipal de EPAs, en construcción.</p></div>
+      </a>
+      <a class="card" href="educacion-publica.html">
+        <img src="assets/img/las-grietas-que-ya-estaban.webp" alt="" loading="lazy">
+        <div class="card-top"><span class="mono">05. Educación pública</span><span class="go go"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+        <div><span class="pill pill-claro lit-pill">Art. 52, lit. b · d · f · par. 2</span><h3>Defensa, foros y propuestas</h3><p>«Las grietas que ya estaban» y las propuestas municipales y nacionales.</p></div>
+      </a>
+      <a class="card card-soft" href="estatuto.html">
+        <img src="assets/img/informe-gestion-ceid-cartago-2026.webp" alt="" loading="lazy">
+        <div class="card-top"><span class="mono">06. El CEID</span><span class="go go-paper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M8 7h9v9"/></svg></span></div>
+        <div><span class="pill pill-claro lit-pill">Art. 52, encabezado · lit. a · g · i · par. 1</span><h3>Estatuto, territorio y rendición de cuentas</h3><p>El art. 52 y su propuesta de reforma, los ocho municipios, los convenios y los informes de gestión.</p></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section" id="publicaciones">
+    <div class="section-head">
+      <h2>Publicaciones <span class="it">abiertas</span></h2>
+      <p>Acceso abierto y citables por DOI de concepto. La Colección MILC es material del secretario que el CEID usa en sus capacitaciones.</p>
+    </div>
+    <div class="shelf">
+      <a class="book" href="voces-que-transforman-fasciculo-1.html"><img src="assets/img/voces-que-transforman-fasciculo-1.webp" alt="" loading="lazy"><span class="book-title">Voces que Transforman · Fascículo 1</span><span class="mono">CEID Cartago</span></a>
+      <a class="book" href="guia-permisos-licencias-bienestar.html"><img src="assets/img/guia-permisos-licencias-bienestar.webp" alt="" loading="lazy"><span class="book-title">Permisos, licencias y bienestar laboral</span><span class="mono">CEID Cartago</span></a>
+      <a class="book" href="https://doi.org/10.5281/zenodo.20517707"><img src="assets/libros/era-onlife.jpg" alt="Portada de Educación en la Era Onlife"><span class="book-title">Educación en la Era Onlife</span><span class="mono">Tomo 0 · MILC</span></a>
+      <a class="book" href="https://doi.org/10.5281/zenodo.20644819"><img src="assets/libros/mercado-atencion.jpg" alt="Portada de El Mercado de la Atención"><span class="book-title">El Mercado de la Atención</span><span class="mono">Tomo I · DOI</span></a>
+      <a class="book" href="https://doi.org/10.5281/zenodo.21176768"><img src="assets/libros/pedagogia-querencia.jpg" alt="Portada de Pedagogía de la Querencia"><span class="book-title">Pedagogía de la Querencia</span><span class="mono">Tomo II · DOI</span></a>
+      <a class="book" href="https://doi.org/10.5281/zenodo.21360910"><img src="assets/libros/nino-suena-ciencia.jpg" alt="Portada de El Niño que Sueña Ciencia"><span class="book-title">El Niño que Sueña Ciencia</span><span class="mono">Tomo III · DOI</span></a>
+      <a class="book" href="https://doi.org/10.5281/zenodo.21517630"><img src="assets/libros/no-rendir-mirada.jpg" alt="Portada de No Rendir la Mirada"><span class="book-title">No Rendir la Mirada</span><span class="mono">Tomo IV · DOI</span></a>
+      <a class="book" href="https://doi.org/10.5281/zenodo.21654100"><img src="assets/libros/lugar-llegar-ser.jpg" alt="Portada de El Lugar de Llegar a Ser"><span class="book-title">El Lugar de Llegar a Ser</span><span class="mono">Tomo V · DOI</span></a>
+    </div>
+  </section>
+
+  <section class="llamado" id="llamado">
+    <div class="llamado-txt">
+      <span class="mono">Para docentes afiliados</span>
+      <h2>Escribe con <span class="it">nosotros</span></h2>
+      <p>El CEID acompaña a los docentes a sistematizar y publicar su experiencia.</p>
+    </div>
+    <ul class="llamado-card">
+      <li><span class="mono">Tesis y trabajos de grado</span><a href="asistencia-tecnica-tesis.html">Pedir asistencia técnica</a><span class="muted">Gratuita, sin certificación.</span></li>
+      <li><span class="mono">Voces que Transforman</span><a href="voces-que-transforman-fasciculo-1.html">Proponer una experiencia</a><span class="muted">Para el próximo fascículo.</span></li>
+    </ul>
+  </section>
+
+  <footer class="footer"><span>CEID · Subdirectiva SUTEV Cartago · Norte del Valle del Cauca</span><span><a href="estatuto.html">Art. 52 del Estatuto del SUTEV</a> · <a href="archivo.html">Archivo</a></span></footer>
+</div>
+
+</body>
+</html>
