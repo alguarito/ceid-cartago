@@ -195,6 +195,20 @@
   .art-volver { grid-column: 1 / -1; grid-row: 1; }
 }
 
+/* Secretario: el texto a la izquierda; el retrato y los datos, en la ficha */
+.sec-acciones { margin-top: 24px; }
+.sec-acciones .btn-line svg { width: 20px; height: 20px; }
+.sec-foto { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; object-position: 50% 22%; border-radius: 18px; }
+.sec-ficha dl { grid-template-columns: 84px minmax(0, 1fr); }
+@media (max-width: 1100px) {
+  .sec-ficha { order: -1; display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: 20px; align-items: start; }
+  .sec-ficha .btn { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .sec-ficha { grid-template-columns: minmax(0, 1fr); padding: 18px; }
+  .sec-foto { max-width: 240px; }
+}
+
 /* Artículo con texto transcrito: el texto manda; las hojas, debajo */
 .art .fc-layout { max-width: 1180px; }
 .art-original { margin-top: clamp(64px, 8vw, 104px); }
