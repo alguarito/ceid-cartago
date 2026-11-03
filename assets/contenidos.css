@@ -195,6 +195,45 @@
   .art-volver { grid-column: 1 / -1; grid-row: 1; }
 }
 
+/* ---------- Página general de sección: una tarjeta por título de segundo nivel ---------- */
+.subs { margin-top: clamp(32px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--gap); }
+.sub { display: flex; flex-direction: column; border-radius: var(--r-md); background: var(--paper); overflow: hidden; text-decoration: none; color: var(--ink); transition: transform .4s var(--ease); }
+.sub:hover { transform: translateY(-4px); color: var(--ink); }
+.sub-img { display: block; position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
+.sub-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.sub-img.tp { display: flex; background: var(--v100); color: var(--v900); }
+.sub-img.tp .tp-tipo { font-size: clamp(32px, 2.8vw, 44px); }
+.sub-body { padding: 20px 22px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.sub-t { font-size: 25px; line-height: 1.1; letter-spacing: -0.03em; font-weight: 600; }
+.sub-d { font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+.sub-pie { margin-top: auto; padding-top: 10px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.sub-pie .mono { font-size: 12px; }
+.sub .go { width: 42px; height: 42px; }
+.nota-sec { margin-top: clamp(40px, 5vw, 64px); max-width: 880px; border-radius: var(--r-md); background: var(--paper); padding: clamp(22px, 3vw, 36px); }
+.sub-intro { margin-top: clamp(28px, 3.4vw, 44px); }
+
+/* ---------- Servicio gratuito: regla, temas y WhatsApp por tema ---------- */
+.srv-acciones { margin-top: 24px; }
+.srv-acciones .btn svg, .tema-acciones .btn svg { width: 19px; height: 19px; }
+.regla { margin-top: 18px; display: flex; gap: 12px; align-items: flex-start; padding: 16px 18px; border-radius: 20px; background: var(--v100); color: var(--v900); max-width: 880px; }
+.regla .pill { flex-shrink: 0; height: 26px; font-size: 11px; }
+.regla p { font-size: 16px; line-height: 1.5; }
+.regla .muted { color: var(--v800); font-size: 14.5px; }
+.temas { margin-top: clamp(36px, 4.4vw, 56px); }
+.temas-t { font-size: clamp(28px, 3vw, 40px); letter-spacing: -0.04em; font-weight: 600; margin-bottom: 18px; }
+.temas-rejilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--gap); }
+.tema { background: var(--paper); border-radius: var(--r-md); padding: 22px; display: flex; flex-direction: column; gap: 10px; }
+.tema h3 { font-size: 22px; line-height: 1.15; letter-spacing: -0.02em; font-weight: 600; }
+.tema p { font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+.tema-acciones { margin-top: auto; padding-top: 8px; display: flex; flex-wrap: wrap; gap: 8px; }
+.tema-acciones .btn { height: 44px; padding: 0 16px; font-size: 14.5px; gap: 8px; }
+.srv-cuerpo { margin-top: clamp(36px, 4.4vw, 56px); }
+@media (max-width: 640px) {
+  .subs { grid-template-columns: minmax(0, 1fr); }
+  .regla { flex-direction: column; gap: 8px; }
+  .tema-acciones .btn { flex: 1 1 auto; }
+}
+
 /* Secretario: el texto a la izquierda; el retrato y los datos, en la ficha */
 .sec-acciones { margin-top: 24px; }
 .sec-acciones .btn-line svg { width: 20px; height: 20px; }
