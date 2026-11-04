@@ -43,6 +43,31 @@ body { overflow-x: visible; }
 .s-fig { margin: 0; border-radius: var(--r-md); overflow: hidden; aspect-ratio: 4 / 3; background: var(--soft); }
 .s-fig img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .momentos { margin-top: 28px; display: flex; gap: 8px; flex-wrap: wrap; }
+/* Índice de momentos: cinco pasos con número, nombre, tiempo y una barra proporcional a los minutos (--min, sobre 20).
+   Si la columna no deja ~110 px por paso, se vuelve una lista. */
+.s-cab > div { container-type: inline-size; }
+.ruta { margin-top: 28px; display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 8px; }
+.ruta a { display: flex; flex-direction: column; align-items: flex-start; padding: 12px 12px 14px; border-radius: 18px; background: var(--paper); border: 1px solid var(--soft);
+  color: var(--ink); text-decoration: none; transition: border-color .2s var(--ease), transform .2s var(--ease); }
+.ruta a:hover { border-color: var(--v600); transform: translateY(-2px); }
+.ruta .r-n { width: 26px; height: 26px; margin-bottom: 10px; border-radius: 50%; display: grid; place-items: center; background: var(--ground);
+  font: 500 13px/1 'JetBrains Mono', monospace; color: var(--ink-2); }
+.ruta .r-t { font-weight: 600; font-size: 15px; line-height: 1.2; letter-spacing: -0.01em; }
+.ruta .r-min { margin-top: 2px; font: 12px/1.4 'JetBrains Mono', monospace; color: var(--muted); }
+.ruta .r-barra { position: relative; width: 100%; height: 4px; margin-top: 10px; border-radius: 4px; background: var(--ground); overflow: hidden; }
+.ruta .r-barra::after { content: ""; position: absolute; inset: 0 auto 0 0; width: calc(var(--min) / 20 * 100%); border-radius: inherit; background: var(--v300); }
+.ruta a.hecho { background: var(--v100); border-color: transparent; }
+.ruta a.hecho .r-n { background: var(--v600); color: #fff; font-size: 0; }
+.ruta a.hecho .r-n::before { content: "✓"; font-size: 14px; font-weight: 700; }
+.ruta a.hecho .r-barra { background: var(--v200); }
+.ruta a.hecho .r-barra::after { background: var(--v600); }
+@container (max-width: 590px) {
+  .ruta { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .ruta a { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; column-gap: 12px; padding: 10px 14px; }
+  .ruta .r-n { grid-row: span 2; margin: 0; }
+  .ruta .r-min { margin: 0; }
+  .ruta .r-barra { grid-column: 2 / 4; margin-top: 6px; }
+}
 @media (max-width: 860px) { .s-cab { grid-template-columns: 1fr; gap: 24px; } .s-fig { aspect-ratio: 16 / 9; } }
 
 /* ---------- Momentos ---------- */

@@ -79,7 +79,7 @@
         el.textContent = hecho ? 'Hecho' : 'Pendiente';
         el.className = 'estado pill ' + (hecho ? 'pill-claro' : 'pill-line');
       });
-      document.querySelectorAll('[data-mom="' + m + '"]').forEach(function (el) { el.className = 'pill ' + (hecho ? 'pill-claro' : 'pill-line'); });
+      document.querySelectorAll('[data-mom="' + m + '"]').forEach(function (el) { el.classList.toggle('hecho', hecho); });
     });
     var completa = MOMENTOS.every(function (m) { return s.momentos[m]; });
     if (completa && !s.completa) { s.completa = new Date().toISOString(); guardar(); }
