@@ -1,0 +1,79 @@
+/* Sesión 3 — piezas de la ficha guiada, sobre curso.css (mismos tokens del sitio). */
+
+/* ---------- Apertura ---------- */
+#abrir .cita { margin-top: 20px; max-width: 760px; }
+
+/* ---------- Listas breves dentro de las tarjetas de concepto ---------- */
+.concepto-txt .partes { display: grid; gap: 8px; }
+.concepto-txt .partes li { padding-left: 14px; border-left: 2px solid var(--v300); }
+.concepto-txt .partes b { color: var(--ink); }
+
+/* ---------- Paso 1: el Sendero en ficha (también se usa en la ficha final) ---------- */
+.paso-act > p.fuente-ej { font-size: 12.5px; color: var(--muted); }
+.paso-act > p.fuente-ej a { color: var(--v700); }
+.ficha-ej { margin: 18px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.ficha-ej > div { background: var(--ground); border-radius: 16px; padding: 14px 16px; min-width: 0; }
+.ficha-ej > div.ancho { grid-column: 1 / -1; }
+.ficha-ej dt { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--v700); }
+.ficha-ej dd { margin: 6px 0 0; font-size: 16px; line-height: 1.55; color: var(--ink); overflow-wrap: anywhere; }
+.no-dice { color: var(--muted); font-style: italic; }
+.paso-act > .ficha-ej + p { margin-top: 16px; }
+@media (max-width: 760px) { .ficha-ej { grid-template-columns: 1fr; } }
+
+/* ---------- Avisos y modelos ---------- */
+.aviso.cuidado { background: #fbf6e5; color: #4a3b0c; border: 1px solid #e2c776; }
+.modelo { margin-top: 14px; padding: 10px 14px; border-radius: 12px; background: var(--ground); border-left: 3px solid var(--v300); font-size: 14.5px; line-height: 1.5; color: var(--ink-2); }
+.modelo b { color: var(--v700); font-weight: 600; }
+.campo .modelo { margin-top: 2px; }
+.aviso .faltan { margin: 8px 0 0; padding-left: 1.2em; list-style: disc; display: grid; gap: 4px; }
+.aviso .faltan a { color: var(--v700); }
+.aviso p { margin-top: 8px; }
+
+/* ---------- Paso 2: campos de la ficha de registro ---------- */
+.campo .req { margin-left: 6px; font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 400; color: var(--v700); }
+.campo select { width: 100%; font: inherit; font-size: 17px; line-height: 1.5; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--line); background: var(--ground); color: var(--ink); }
+.campo select:focus { outline: 2px solid var(--v600); outline-offset: 1px; border-color: transparent; }
+.campo input, .campo textarea, .campo select, .an-rasgo { scroll-margin-top: 170px; }
+.campos-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 18px; align-items: start; }
+@media (max-width: 700px) { .campos-2 { grid-template-columns: 1fr; } }
+.zona, .sino { display: flex; gap: 8px; flex-wrap: wrap; }
+.campo .zona label, .sino label { display: inline-flex; align-items: center; gap: 8px; height: 46px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--line); background: var(--ground); font-size: 15px; font-weight: 500; cursor: pointer; }
+.zona input, .sino input { width: 18px; height: 18px; margin: 0; accent-color: var(--v600); }
+.zona label:has(input:checked), .sino label:has(input:checked) { border-color: var(--v300); background: var(--v50); color: var(--v900); }
+
+/* Frases para empezar */
+.inicios { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+.inicios .mono { font-size: 11.5px; color: var(--muted); }
+.inicio { font: inherit; font-size: 13.5px; line-height: 1.25; padding: 6px 12px; border-radius: 999px; border: 1px dashed var(--v300); background: var(--v50); color: var(--v800); cursor: pointer; text-align: left; }
+.inicio:hover { border-style: solid; }
+.inicio:focus-visible { outline: 2px solid var(--v600); outline-offset: 2px; }
+
+/* ---------- Paso 3: ficha de análisis ---------- */
+.an-cuenta { margin-top: 14px; color: var(--v700); }
+.campo.analisis { margin-top: 10px; gap: 8px; }   /* .campo da a las evidencias el estilo de los campos */
+fieldset.an-rasgo { margin: 0; min-width: 0; }
+.an-rasgo legend { float: left; width: 100%; padding: 0; font-size: 16px; line-height: 1.4; font-weight: 600; }
+.an-rasgo legend .mono { display: block; margin-bottom: 2px; font-size: 11.5px; font-weight: 400; color: var(--v700); }
+.an-rasgo .sino { clear: both; padding-top: 10px; }
+.an-rasgo .sino label { height: 40px; padding: 0 14px; background: var(--paper); }
+.mi-rasgo.an-rasgo .ev { margin: 12px 0 0; }
+
+/* ---------- Paso 4: narrativa ---------- */
+.guia-preg { margin: 0; padding-left: 1.1em; list-style: disc; display: grid; gap: 2px; font-size: 14.5px; line-height: 1.45; color: var(--ink-2); }
+.narr { margin-top: 26px; padding-top: 18px; border-top: 1px dashed var(--line); }
+.narr textarea { min-height: 140px; }
+
+/* ---------- Ficha completa (dentro del resultado) ---------- */
+.ficha-ver { margin-top: 12px; border-radius: var(--r-md); background: var(--ground); }
+.ficha-ver > summary { cursor: pointer; padding: 16px 20px; font-size: 16px; font-weight: 600; }
+.ficha-doc { padding: 0 clamp(16px, 2.4vw, 28px) clamp(18px, 2.4vw, 28px); }
+.ficha-doc > .mono { color: var(--muted); font-size: 12px; }
+.ficha-doc h4 { margin-top: 20px; font-size: 20px; line-height: 1.2; letter-spacing: -0.02em; font-weight: 600; }
+.ficha-doc h5 { margin: 14px 0 0; font-family: 'JetBrains Mono', monospace; font-size: 12px; font-weight: 400; color: var(--v700); }
+.ficha-doc p, .ficha-doc li { font-size: 16px; line-height: 1.6; color: var(--ink); overflow-wrap: anywhere; }
+.ficha-doc h5 + p { margin-top: 4px; }
+.ficha-doc .ficha-ej { margin-top: 10px; }
+.ficha-doc .ficha-ej > div { background: var(--paper); }
+.doc-rasgos { margin-top: 10px; display: grid; gap: 8px; }
+.doc-rasgos li { padding: 10px 14px; border-radius: 12px; background: var(--paper); }
+.doc-crecer { margin-top: 10px; font-size: 15px !important; color: var(--ink-2) !important; }

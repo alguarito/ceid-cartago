@@ -1,0 +1,22 @@
+/* Página del certificado: se carga después de curso.css y portada.css. */
+.cert-titulo { margin-top: 18px; font-size: clamp(56px, 9vw, 140px); line-height: .86; letter-spacing: -0.06em; font-weight: 600; }
+.cert-titulo .it { color: var(--v700); font-size: 1.04em; letter-spacing: -0.02em; }
+.cert-grid { margin-top: 6px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 18px; }
+.cert-grid .ancho { grid-column: 1 / -1; }
+.campo select, .campo input[type=number], .campo input[type=tel], .campo input[type=email] {
+  width: 100%; font: inherit; font-size: 17px; line-height: 1.5; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--line); background: var(--ground); color: var(--ink); }
+.campo select { appearance: none; -webkit-appearance: none; padding-right: 40px;
+  background: var(--ground) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23111312' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center; }
+.campo select:focus, .campo input:focus { outline: 2px solid var(--v600); outline-offset: 1px; border-color: transparent; }
+.campo[hidden] { display: none; }
+.campo.error input, .campo.error select { border-color: #c4462a; background: #fcefea; }
+.campo .msj-error { font-size: 13.5px; color: #a33a1f; }
+.trampa { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.autoriza { margin-top: 18px; display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: 10px; align-items: start; font-size: 15.5px; line-height: 1.5; color: var(--ink-2); cursor: pointer; }
+.autoriza input { width: 20px; height: 20px; margin: 2px 0 0; accent-color: var(--v600); }
+.autoriza a { color: var(--v700); }
+.form-bloqueado { opacity: .5; pointer-events: none; }
+.cert-vista { margin-top: 24px; background: var(--paper); border-radius: var(--r-md); padding: clamp(10px, 2vw, 24px); }
+.cert-vista img { display: block; width: 100%; height: auto; border-radius: 6px; box-shadow: 0 10px 30px rgba(11, 46, 22, .16); }
+.envio-ok { background: var(--v50); color: var(--v900); }
+@media (max-width: 760px) { .cert-grid { grid-template-columns: 1fr; } }

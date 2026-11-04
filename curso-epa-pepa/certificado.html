@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tu constancia · Curso EPA y PEPA | CEID Cartago</title>
+<meta name="description" content="Genera la constancia del curso autoformativo EPA y PEPA del CEID Cartago cuando completes las 5 sesiones, los 5 cuestionarios y la ficha de registro de tu EPA.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CEID Cartago">
+<meta property="og:locale" content="es_CO">
+<meta property="og:title" content="Tu constancia · Curso EPA y PEPA">
+<meta property="og:description" content="Genera la constancia del curso autoformativo EPA y PEPA del CEID Cartago cuando completes las 5 sesiones, los 5 cuestionarios y la ficha de registro de tu EPA.">
+<meta property="og:url" content="https://ceidcartago.com/curso-epa-pepa/certificado.html">
+<meta property="og:image" content="https://ceidcartago.com/assets/og/ceid.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CEID Cartago, Centro de Estudios e Investigaciones Docentes de la Subdirectiva SUTEV Cartago">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/ceid-base.css">
+<link rel="stylesheet" href="../assets/contenidos.css">
+<link rel="stylesheet" href="curso.css">
+<link rel="stylesheet" href="portada.css">
+<link rel="stylesheet" href="certificado.css">
+</head>
+<body>
+<div class="wrap">
+<header class="nav"><a class="brand" href="../index.html"><span class="sello"><img src="../assets/logo-sutev.png" alt="Logo del SUTEV"></span><span class="brand-txt"><strong>CEID Cartago</strong><span>Subdirectiva SUTEV Cartago</span></span></a><nav class="nav-links" aria-label="Principal"><a href="../ceid.html">El CEID</a><a href="../formacion.html">Formación</a><a href="../investigacion.html">Investigación</a><a href="../publicaciones.html">Publicaciones</a><a href="../epa.html" aria-current="page">EPA y PEPA</a><a href="../noticias.html">Noticias</a><a href="../secretario.html">Secretario</a></nav><a class="btn btn-verde nav-cta" href="../convocatorias.html">Convocatorias <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 17L17 7M8 7h9v9"/></svg></a><button class="nav-toggle" aria-label="Abrir menú"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16M4 16h16"/></svg></button></header>
+
+<div class="cbar" role="navigation" aria-label="Sesiones del curso">
+  <span class="cbar-curso"><a href="index.html">Curso EPA y PEPA</a></span>
+  <ol class="pasos">
+    <li><a href="sesion-1.html" data-sesion="1">1<span class="p-txt"> · El PEPA</span></a></li>
+    <li><a href="sesion-2.html" data-sesion="2">2<span class="p-txt"> · Las EPA</span></a></li>
+    <li><a href="sesion-3.html" data-sesion="3">3<span class="p-txt"> · Sistematizar</span></a></li>
+    <li><a href="sesion-4.html" data-sesion="4">4<span class="p-txt"> · Profundizar</span></a></li>
+    <li><a href="sesion-5.html" data-sesion="5">5<span class="p-txt"> · Círculos</span></a></li>
+  </ol>
+  <span class="guardado" id="guardado" aria-live="polite">Tu avance se guarda en este navegador</span>
+</div>
+
+<main>
+<header class="p-cab">
+  <nav class="mono muted miga" aria-label="Ruta"><a href="../index.html">Inicio</a> / <a href="../epa.html">EPA y PEPA</a> / <a href="index.html">Curso EPA y PEPA</a> / <span>Constancia</span></nav>
+  <div class="momentos"><span class="pill pill-verde">Constancia</span><span class="pill pill-line">5 horas</span><span class="pill pill-line">CEID Cartago</span></div>
+  <h1 class="cert-titulo">Tu <span class="it">constancia</span></h1>
+  <p class="s-guia">Cuando cumples los tres requisitos, escribes tus datos y la constancia se genera en este mismo navegador, con su código para verificarla. Una copia de tus datos y de tu ficha llega al CEID Cartago.</p>
+  <p class="mono muted">Educación informal. No conduce a título alguno.</p>
+</header>
+
+<section class="mom" id="requisitos-cert" aria-labelledby="t-req">
+  <div class="mom-cab"><h2 id="t-req">1 · Requisitos</h2><span class="estado pill pill-line" id="estado-req">Revisando</span></div>
+  <div class="paso-act">
+    <ul class="requisitos" id="lista-req"></ul>
+    <div id="faltan-ficha"></div>
+  </div>
+</section>
+
+<section class="mom" id="datos-cert" aria-labelledby="t-datos">
+  <div class="mom-cab"><h2 id="t-datos">2 · Tus <span class="it">datos</span></h2><span class="mono">Todos los campos son necesarios</span></div>
+  <form class="paso-act" id="form-cert" novalidate>
+    <p>Así quedará tu nombre en la constancia. El resto de los datos solo llega al CEID: no se publica y sirve para el registro del curso y para informes en cifras agregadas.</p>
+    <div class="cert-grid">
+      <div class="campo ancho"><label for="d-nombre">Nombre completo</label><span class="ayuda">Tal como quieres que aparezca en la constancia.</span><input type="text" id="d-nombre" autocomplete="name" maxlength="90" required></div>
+      <div class="campo ancho"><label for="d-institucion">Institución educativa</label><input type="text" id="d-institucion" maxlength="120" required></div>
+      <div class="campo"><label for="d-municipio">Ciudad o municipio</label><select id="d-municipio" required></select></div>
+      <div class="campo" id="campo-otro-mun" hidden><label for="d-municipio-otro">¿Cuál?</label><input type="text" id="d-municipio-otro" maxlength="60"></div>
+      <div class="campo"><label for="d-docente">Docente de</label><select id="d-docente" required></select></div>
+      <div class="campo" id="campo-otro-doc" hidden><label for="d-docente-otro">¿De qué?</label><input type="text" id="d-docente-otro" maxlength="60"></div>
+      <div class="campo"><label for="d-titulo">Último título académico</label><select id="d-titulo" required></select></div>
+      <div class="campo"><label for="d-edad">Edad</label><input type="number" id="d-edad" min="18" max="80" inputmode="numeric" required></div>
+      <div class="campo"><label for="d-genero">Género</label><select id="d-genero" required></select></div>
+      <div class="campo"><label for="d-celular">Celular</label><span class="ayuda">10 dígitos, por ejemplo 3001234567.</span><input type="tel" id="d-celular" autocomplete="tel" inputmode="numeric" maxlength="13" required></div>
+      <div class="campo"><label for="d-correo">Correo</label><input type="email" id="d-correo" autocomplete="email" maxlength="120" required></div>
+      <div class="campo trampa" aria-hidden="true"><label for="d-web">No llenar</label><input type="text" id="d-web" tabindex="-1" autocomplete="off"></div>
+    </div>
+    <label class="autoriza"><input type="checkbox" id="d-autoriza" required><span>Autorizo al CEID de la Subdirectiva SUTEV Cartago a tratar mis datos personales para emitir y verificar mi constancia, llevar el registro del curso y elaborar informes en cifras agregadas, según la Ley 1581 de 2012 y el Decreto 1377 de 2013. Leí el <a href="privacidad.html" target="_blank" rel="noopener">aviso de privacidad</a>.</span></label>
+    <label class="autoriza"><input type="checkbox" id="d-contacto"><span>Además, acepto que el CEID me contacte para socializar mi experiencia en el foro, la revista o el congreso (opcional).</span></label>
+    <div id="errores-form" aria-live="polite"></div>
+    <div class="acciones"><button class="btn btn-verde" type="submit" id="generar-cert">Generar mi constancia</button></div>
+  </form>
+</section>
+
+<section class="mom" id="resultado-cert" aria-labelledby="t-res" hidden>
+  <div class="mom-cab"><h2 id="t-res">3 · Tu <span class="it">constancia</span></h2><span class="mono" id="codigo-cert"></span></div>
+  <div class="cert-vista"><img id="vista-cert" alt="Vista previa de tu constancia del curso EPA y PEPA"></div>
+  <div class="acciones">
+    <button class="btn btn-verde" type="button" id="descargar-cert">Descargar mi constancia en PDF</button>
+    <a class="btn btn-line" href="index.html">Volver al curso</a>
+  </div>
+  <div id="estado-envio" aria-live="polite"></div>
+</section>
+</main>
+
+<footer class="footer"><span>CEID · Subdirectiva SUTEV Cartago · Norte del Valle del Cauca<br>Sede principal: Casa del Maestro, Carrera 4 entre Calles 16 y 17, Cartago, Valle del Cauca · <a href="mailto:contacto@ceidcartago.com">contacto@ceidcartago.com</a></span><span><a href="../estatuto.html">Art. 52 del Estatuto del SUTEV</a> · <a href="../archivo.html">Archivo</a></span></footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="config.js"></script>
+<script src="curso.js"></script>
+<script src="envio.js"></script>
+<script src="certificado.js"></script>
+<script>document.querySelectorAll(".nav-toggle").forEach(b => b.addEventListener("click", () => { const n = b.closest(".nav"), abierto = n.classList.toggle("abierta"); b.setAttribute("aria-expanded", abierto); b.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú"); }));</script>
+</body>
+</html>

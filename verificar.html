@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Verificar una constancia | CEID Cartago</title>
+<meta name="description" content="Verifica con su código una constancia emitida por el CEID de la Subdirectiva SUTEV Cartago.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CEID Cartago">
+<meta property="og:locale" content="es_CO">
+<meta property="og:title" content="Verificar una constancia">
+<meta property="og:description" content="Verifica con su código una constancia emitida por el CEID de la Subdirectiva SUTEV Cartago.">
+<meta property="og:url" content="https://ceidcartago.com/verificar.html">
+<meta property="og:image" content="https://ceidcartago.com/assets/og/ceid.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="CEID Cartago, Centro de Estudios e Investigaciones Docentes de la Subdirectiva SUTEV Cartago">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/ceid-base.css">
+<link rel="stylesheet" href="assets/contenidos.css">
+<link rel="stylesheet" href="curso-epa-pepa/curso.css">
+<link rel="stylesheet" href="curso-epa-pepa/portada.css">
+<link rel="stylesheet" href="curso-epa-pepa/certificado.css">
+</head>
+<body>
+<div class="wrap">
+<header class="nav"><a class="brand" href="index.html"><span class="sello"><img src="assets/logo-sutev.png" alt="Logo del SUTEV"></span><span class="brand-txt"><strong>CEID Cartago</strong><span>Subdirectiva SUTEV Cartago</span></span></a><nav class="nav-links" aria-label="Principal"><a href="ceid.html">El CEID</a><a href="formacion.html">Formación</a><a href="investigacion.html">Investigación</a><a href="publicaciones.html">Publicaciones</a><a href="epa.html">EPA y PEPA</a><a href="noticias.html">Noticias</a><a href="secretario.html">Secretario</a></nav><button class="nav-toggle" aria-label="Abrir menú"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 8h16M4 16h16"/></svg></button></header>
+<main>
+<header class="p-cab">
+  <nav class="mono muted miga" aria-label="Ruta"><a href="index.html">Inicio</a> / <span>Verificar una constancia</span></nav>
+  <h1 class="cert-titulo">Verificar una <span class="it">constancia</span></h1>
+  <p class="s-guia">Escribe el código que aparece en la constancia, por ejemplo CEID-EPA-2026-7F3K9Q, o escanea su QR.</p>
+</header>
+<section class="mom">
+  <form class="paso-act" id="form-verificar">
+    <div class="campo"><label for="codigo">Código de la constancia</label><input type="text" id="codigo" maxlength="24" autocomplete="off" spellcheck="false" placeholder="CEID-EPA-2026-XXXXXX" style="text-transform:uppercase"></div>
+    <div class="acciones"><button class="btn btn-verde" type="submit">Verificar</button></div>
+    <div id="resultado-verificar" aria-live="polite"></div>
+  </form>
+</section>
+</main>
+<footer class="footer"><span>CEID · Subdirectiva SUTEV Cartago · Norte del Valle del Cauca<br>Sede principal: Casa del Maestro, Carrera 4 entre Calles 16 y 17, Cartago, Valle del Cauca · <a href="mailto:contacto@ceidcartago.com">contacto@ceidcartago.com</a></span><span><a href="estatuto.html">Art. 52 del Estatuto del SUTEV</a> · <a href="archivo.html">Archivo</a></span></footer>
+</div>
+<script src="curso-epa-pepa/config.js"></script>
+<script>
+// Consulta el registro de constancias en el Apps Script del CEID (config.js). Solo las aprobadas muestran nombre y fecha.
+(function () {
+  var cfg = window.CURSO_CONFIG || {};
+  var form = document.getElementById('form-verificar'), campo = document.getElementById('codigo'), caja = document.getElementById('resultado-verificar');
+  var correo = '<a href="mailto:contacto@ceidcartago.com">contacto@ceidcartago.com</a>';
+  function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function fecha(iso) { var p = iso.split('-'); return new Intl.DateTimeFormat('es-CO', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(+p[0], p[1] - 1, +p[2])); }
+  function verificar(codigo) {
+    codigo = (codigo || '').trim().toUpperCase();
+    if (!/^CEID-EPA-\d{4}-[A-Z0-9]{6}$/.test(codigo)) { caja.innerHTML = '<div class="aviso neutro">Ese código no tiene el formato de las constancias del CEID (CEID-EPA-año-seis letras o números).</div>'; return; }
+    caja.innerHTML = '<div class="aviso neutro">Buscando…</div>';
+    var error = '<div class="aviso neutro">No pudimos consultar el registro en este momento. Revisa tu conexión e inténtalo de nuevo.</div>';
+    if (!cfg.urlScript) { caja.innerHTML = error; return; }
+    fetch(cfg.urlScript + '?codigo=' + encodeURIComponent(codigo), { cache: 'no-store' }).then(function (r) { if (!r.ok) throw r; return r.json(); }).then(function (d) {
+      if (!d.ok) {
+        caja.innerHTML = '<div class="aviso neutro">No encontramos la constancia <b>' + esc(codigo) + '</b>. Revisa que el código esté bien escrito o escríbenos a ' + correo + '.</div>';
+      } else if (d.estado === 'aprobada') {
+        caja.innerHTML = '<div class="resultado"><span class="mono">Constancia válida · ' + esc(d.codigo) + '</span><h4>' + esc(d.nombre) + '</h4>' +
+          '<p>Participó en y completó el curso autoformativo «' + esc(cfg.curso) + '», de ' + esc(cfg.horas) + ' horas. Constancia expedida por el CEID de la Subdirectiva SUTEV Cartago el ' + esc(fecha(d.fecha)) + '.</p><p>Educación informal. No conduce a título alguno.</p></div>';
+      } else if (d.estado === 'anulada') {
+        caja.innerHTML = '<div class="aviso neutro">La constancia <b>' + esc(codigo) + '</b> fue anulada por el CEID. Si crees que es un error, escríbenos a ' + correo + '.</div>';
+      } else {
+        caja.innerHTML = '<div class="aviso neutro">La constancia <b>' + esc(codigo) + '</b> está registrada y el CEID la está revisando. Vuelve a consultarla en unos días.</div>';
+      }
+    }).catch(function () { caja.innerHTML = error; });
+  }
+  form.addEventListener('submit', function (e) { e.preventDefault(); verificar(campo.value); });
+  var q = new URLSearchParams(location.search).get('codigo');
+  if (q) { campo.value = q; verificar(q); }
+})();
+document.querySelectorAll(".nav-toggle").forEach(b => b.addEventListener("click", () => { const n = b.closest(".nav"), abierto = n.classList.toggle("abierta"); b.setAttribute("aria-expanded", abierto); b.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú"); }));
+</script>
+</body>
+</html>

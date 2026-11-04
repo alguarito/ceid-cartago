@@ -1,0 +1,67 @@
+/* Sesión 5 — piezas propias: listas en las tarjetas, «Arma tu círculo» y cierre del curso.
+   Se carga después de curso.css y usa sus mismos tokens. */
+
+/* ---------- Listas dentro de las tarjetas de concepto ---------- */
+.lista-s5 { margin: 0; padding-left: 1.2em; display: grid; gap: 10px; }
+ul.lista-s5 { list-style: disc; }
+ol.lista-s5 { list-style: decimal; }
+.lista-s5 li::marker { color: var(--v700); font-weight: 600; }
+.lista-s5 b { color: var(--ink); }
+.marca-prop { margin-top: 16px; }
+
+/* Espacios para socializar (reusan .rasgo) */
+.rasgo .preg a { color: var(--v700); font-weight: 600; }
+
+/* ---------- Actividad: arma tu círculo ---------- */
+.campos-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 var(--gap); }
+.campo[hidden] { display: none; }
+.campo select, .campo input[type=number] { width: 100%; font: inherit; font-size: 17px; line-height: 1.5; padding: 12px 14px; border-radius: 14px; border: 1px solid var(--line); background: var(--ground); color: var(--ink); }
+.campo select:focus, .campo input[type=number]:focus { outline: 2px solid var(--v600); outline-offset: 1px; border-color: transparent; }
+.fila-op { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 8px; }
+.fila-op.destinos { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.fila-op .opcion b { font-weight: 600; }
+.fila-op .opcion small { display: block; margin-top: 4px; font-size: 13.5px; line-height: 1.4; color: var(--ink-2); }
+.fila-op .opcion:has(input:checked) { border-color: var(--v300); background: var(--v50); }
+.agendas { display: grid; }
+.agendas .campo { margin-top: 10px; }
+.aviso.wa { margin-top: 22px; }
+.aviso.wa .mono { font-size: 12px; color: var(--v700); }
+.wa-texto { margin-top: 6px; font-size: 16px; line-height: 1.5; color: var(--ink); }
+.ayuda-s5 { margin-top: 10px; font-size: 14px; line-height: 1.45; color: var(--muted); max-width: 760px; }
+.resultado ol { margin: 10px 0 0; padding-left: 1.3em; list-style: decimal; display: grid; gap: 6px; max-width: 760px; font-size: 16px; line-height: 1.5; color: #fff; }
+.resultado .acciones { margin-top: 16px; }
+
+/* ---------- Cierre del curso ---------- */
+.fin-curso { margin-top: var(--gap); border-radius: var(--r-lg); padding: clamp(24px, 3vw, 44px); background: var(--paper); }
+.fin-curso > .mono { font-size: 12px; color: var(--muted); }
+.fin-curso h3 { margin-top: 10px; font-size: clamp(28px, 3.4vw, 48px); line-height: 1.02; letter-spacing: -0.04em; font-weight: 600; }
+.fin-curso h3 .it { color: var(--v700); }
+.fin-curso > p { margin-top: 12px; font-size: 17px; line-height: 1.55; color: var(--ink-2); max-width: 760px; }
+.fin-curso .cita { margin-top: 10px; max-width: 760px; }
+.fin-curso .acciones { margin-top: 18px; }
+.fin-cols { margin-top: 18px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 32px; }
+.fin-cols h4 { font-size: 15px; font-weight: 600; }
+.fin-lista { margin-top: 6px; display: grid; }
+.fin-lista li { display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 10px; align-items: baseline; padding: 8px 0; border-bottom: 1px dashed var(--line); font-size: 15.5px; line-height: 1.35; color: var(--ink-2); }
+.fin-lista li .mono { font-size: 12px; color: var(--muted); }
+.fin-lista li a { color: var(--v700); font-weight: 600; }
+.fin-lista .est { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); }
+.fin-lista li.ok { color: var(--ink); }
+.fin-lista li.ok .est { color: var(--v700); }
+.fin-lista li.ok .est::before { content: "✓ "; }
+/* Curso completo: el recuadro pasa a verde */
+.fin-curso.ok { background: var(--v600); color: #fff; }
+.fin-curso.ok > .mono { color: var(--v100); }
+.fin-curso.ok h3 .it { color: var(--v100); }
+.fin-curso.ok > p { color: var(--v50); }
+.fin-curso.ok .cita { background: rgba(255, 255, 255, .1); border-left-color: var(--v100); color: #fff; }
+.fin-curso.ok .cita cite { color: var(--v100); }
+.cert { margin-top: var(--gap); display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.cert .aviso { margin-top: 0; flex: 1; min-width: 240px; }
+.cert .btn { height: 48px; font-size: 15px; }
+.btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+.fin-acciones { margin-top: var(--gap); }
+@media (max-width: 760px) {
+  .campos-2, .fin-cols { grid-template-columns: 1fr; }
+  .cert .btn { width: 100%; }
+}
