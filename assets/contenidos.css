@@ -280,3 +280,34 @@
 .art-original { margin-top: clamp(64px, 8vw, 104px); }
 .art-original .section-head { max-width: 920px; margin-left: auto; margin-right: auto; }
 .art-original .art-hojas { margin-top: 0; }
+
+/* ---------- Gráficas en las fichas: «::: barras | columnas | cifras» (informes, 5-11-2026) ---------- */
+.fc-body .graf { margin: 1.8em 0 0; padding: 22px 24px 18px; border-radius: var(--r-md); background: var(--paper); display: flex; flex-direction: column; gap: 16px; }
+.graf-t { font-size: 17px; line-height: 1.3; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); }
+.graf-src { margin: 0; font-family: 'JetBrains Mono', monospace; font-size: 11.5px; line-height: 1.5; color: var(--muted); }
+.graf-filas { display: grid; gap: 11px; }
+.graf-fila { display: grid; grid-template-columns: minmax(120px, 36%) minmax(0, 1fr) 58px; gap: 12px; align-items: center; }
+.graf-lb { font-size: 14.5px; line-height: 1.3; color: var(--ink-2); }
+.graf-tr { height: 14px; border-radius: 999px; background: var(--v100); overflow: hidden; }
+.graf-fl { display: block; height: 100%; border-radius: 999px; background: var(--v600); }
+.graf-fl.acento, .graf-b.acento { background: var(--v800); }
+.graf-vl { font-size: 16px; font-weight: 600; color: var(--ink); text-align: right; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.graf-columnas { display: grid; grid-template-columns: repeat(var(--n), minmax(0, 1fr)); gap: 12px; }
+.graf-col { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.graf-area { height: 190px; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 6px; border-bottom: 2px solid var(--ink); }
+.graf-area .graf-vl { text-align: center; }
+.graf-b { display: block; width: min(64px, 78%); border-radius: 10px 10px 0 0; background: var(--v600); }
+.graf-col .graf-lb { font-size: 13px; line-height: 1.25; text-align: center; }
+.graf .graf-cifras { margin: 0; padding: 0; list-style: none; }
+.fc-body .graf-cifras li + li { margin-top: 0; }
+.fc-body .graf p, .fc-body .graf ul { margin-top: 0; }
+
+@media (max-width: 640px) {
+  .fc-body .graf { padding: 18px 16px 16px; gap: 14px; }
+  .graf-fila { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+  .graf-fila .graf-lb { grid-column: 1 / -1; font-size: 14px; }
+  .graf-area { height: 140px; }
+  .graf-columnas { gap: 6px; }
+  .graf-col .graf-lb { font-size: 11.5px; }
+  .graf-vl { font-size: 15px; }
+}
