@@ -45,6 +45,14 @@
 .fc-body h2 { margin-top: 1.7em; font-size: clamp(26px, 2.4vw, 34px); line-height: 1.15; letter-spacing: -0.03em; font-weight: 600; scroll-margin-top: 104px; }
 .fc-body h3 { margin-top: 1.4em; font-size: 22px; line-height: 1.25; font-weight: 600; }
 .fc-body h3 .pill { margin-left: 6px; vertical-align: 3px; white-space: nowrap; }
+.fc-body h3 .h-fin { white-space: nowrap; }  /* la última palabra y su píldora bajan juntas */
+@media (max-width: 360px) { .fc-body h3 .h-fin { white-space: normal; } }
+/* Galería: fotos en fila, cada una con un ancho proporcional a su forma (misma altura, sin recortes); en el celular, una debajo de otra. */
+.fc-galeria { display: flex; gap: 10px; align-items: flex-start; }
+.fc-galeria figure { flex: var(--r) 1 0; min-width: 0; margin: 0; }
+.fc-galeria a { display: block; border-radius: var(--r-md); overflow: hidden; }
+.fc-galeria img { display: block; width: 100%; height: auto; }
+@media (max-width: 640px) { .fc-galeria { flex-direction: column; } .fc-galeria figure { flex: none; width: 100%; } }
 .fc-body ul, .fc-body ol { padding-left: 1.3em; list-style: disc; }
 .fc-body ol { list-style: decimal; }
 .fc-body li + li { margin-top: .45em; }
