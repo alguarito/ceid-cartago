@@ -304,7 +304,7 @@
 
 @media (max-width: 640px) {
   .fc-body .graf { padding: 18px 16px 16px; gap: 14px; }
-  .graf-fila { grid-template-columns: minmax(0, 1fr) auto; gap: 6px 10px; }
+  .graf-fila { grid-template-columns: minmax(0, 1fr) 66px; gap: 6px 10px; }
   .graf-fila .graf-lb { grid-column: 1 / -1; font-size: 14px; }
   .graf-area { height: 140px; }
   .graf-columnas { gap: 6px; }
