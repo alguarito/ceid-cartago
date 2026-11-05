@@ -212,7 +212,13 @@
 }
 
 /* ---------- Página general de sección: una tarjeta por título de segundo nivel ---------- */
-.subs { margin-top: clamp(32px, 4vw, 56px); display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: var(--gap); }
+.subs { margin-top: clamp(32px, 4vw, 56px); display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap); container-type: inline-size; }
+/* Tarjetas centradas (4-11-2026): las mismas columnas que daba la rejilla (mín. 300 px cada una),
+   pero si la última fila no se llena, sus tarjetas quedan al centro y no pegadas a la izquierda */
+.subs > .sub { --n: 1; flex: 0 0 calc((100% - (var(--n) - 1) * var(--gap)) / var(--n)); min-width: 0; }
+@container (min-width: 616px) { .subs > .sub { --n: 2; } }
+@container (min-width: 932px) { .subs > .sub { --n: 3; } }
+@container (min-width: 1248px) { .subs > .sub { --n: 4; } }
 .sub { display: flex; flex-direction: column; border-radius: var(--r-md); background: var(--paper); overflow: hidden; text-decoration: none; color: var(--ink); transition: transform .4s var(--ease); }
 .sub:hover { transform: translateY(-4px); color: var(--ink); }
 .sub-img { display: block; position: relative; aspect-ratio: 16 / 9; overflow: hidden; }
@@ -238,7 +244,12 @@
 .regla .muted { color: var(--v800); font-size: 14.5px; }
 .temas { margin-top: clamp(36px, 4.4vw, 56px); }
 .temas-t { font-size: clamp(28px, 3vw, 40px); letter-spacing: -0.04em; font-weight: 600; margin-bottom: 18px; }
-.temas-rejilla { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--gap); }
+.temas-rejilla { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--gap); container-type: inline-size; }
+/* Igual que .subs: columnas de mín. 260 px y la última fila, centrada (4-11-2026) */
+.temas-rejilla > .tema { --n: 1; flex: 0 0 calc((100% - (var(--n) - 1) * var(--gap)) / var(--n)); min-width: 0; }
+@container (min-width: 536px) { .temas-rejilla > .tema { --n: 2; } }
+@container (min-width: 812px) { .temas-rejilla > .tema { --n: 3; } }
+@container (min-width: 1088px) { .temas-rejilla > .tema { --n: 4; } }
 .tema { background: var(--paper); border-radius: var(--r-md); padding: 22px; display: flex; flex-direction: column; gap: 10px; }
 .tema h3 { font-size: 22px; line-height: 1.15; letter-spacing: -0.02em; font-weight: 600; }
 .tema p { font-size: 15px; line-height: 1.5; color: var(--ink-2); }
@@ -246,7 +257,6 @@
 .tema-acciones .btn { height: 44px; padding: 0 16px; font-size: 14.5px; gap: 8px; }
 .srv-cuerpo { margin-top: clamp(36px, 4.4vw, 56px); }
 @media (max-width: 640px) {
-  .subs { grid-template-columns: minmax(0, 1fr); }
   .regla { flex-direction: column; gap: 8px; }
   .tema-acciones .btn { flex: 1 1 auto; }
 }
