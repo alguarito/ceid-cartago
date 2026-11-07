@@ -61,7 +61,7 @@
 .ficha { position: sticky; top: 104px; border-radius: var(--r-md); background: var(--paper); padding: 24px; display: flex; flex-direction: column; gap: 14px; }
 .ficha dl { margin: 0; display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 10px 12px; font-size: 15px; line-height: 1.4; }
 .ficha dt { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: var(--muted); padding-top: 2px; }
-.ficha dd { margin: 0; }
+.ficha dd { margin: 0; overflow-wrap: break-word; }
 .ficha .btn { width: 100%; height: 48px; font-size: 15px; }
 .ficha-peso { margin-top: -6px; text-align: center; font-size: 11.5px; }
 .ficha-nota { font-size: 13.5px; line-height: 1.45; color: var(--muted); }
