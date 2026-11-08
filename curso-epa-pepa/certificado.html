@@ -88,6 +88,7 @@
   <div class="cert-vista"><img id="vista-cert" alt="Vista previa de tu constancia del curso EPA y PEPA"></div>
   <div class="acciones">
     <button class="btn btn-verde" type="button" id="descargar-cert">Descargar mi constancia en PDF</button>
+    <button class="btn btn-paper" type="button" id="descargar-cuaderno">Descargar mi cuaderno (PDF)</button>
     <a class="btn btn-line" href="index.html">Volver al curso</a>
   </div>
   <div id="estado-envio" aria-live="polite"></div>
@@ -102,6 +103,7 @@
 <script src="curso.js"></script>
 <script src="envio.js"></script>
 <script src="certificado.js"></script>
+<script src="cuaderno-pdf.js"></script>
 <script>document.querySelectorAll(".nav-toggle").forEach(b => b.addEventListener("click", () => { const n = b.closest(".nav"), abierto = n.classList.toggle("abierta"); b.setAttribute("aria-expanded", abierto); b.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú"); }));</script>
 </body>
 </html>

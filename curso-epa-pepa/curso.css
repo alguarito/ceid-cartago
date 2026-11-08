@@ -193,6 +193,7 @@ body { overflow-x: visible; }
 .acciones .btn { height: 48px; font-size: 15px; }
 .aviso { margin-top: 16px; padding: 16px 18px; border-radius: 16px; background: var(--v50); color: var(--v900); font-size: 16px; line-height: 1.5; }
 .aviso.neutro { background: var(--ground); color: var(--ink-2); }
+.aviso.alerta { background: #fdecea; color: #a33a1f; }
 @media (max-width: 900px) { .lupa { grid-template-columns: 1fr; } .marcas { position: static; } .texto-caso { max-height: none; } }
 
 /* Tu práctica */
@@ -258,6 +259,7 @@ body { overflow-x: visible; }
 @media (prefers-reduced-motion: reduce) { .d-pista { transition: none; } }
 
 /* ---------- Estado del cuaderno (cierre de cada sesión y portada) ---------- */
+.cu-nota { margin-top: 10px; font-size: 14px; line-height: 1.45; color: var(--muted); }
 .cuaderno-lista { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
 .cuaderno-lista li { display: grid; grid-template-columns: 54px minmax(0, 1fr) auto; gap: 10px; align-items: baseline; padding: 8px 0; border-bottom: 1px dashed var(--line); font-size: 15.5px; line-height: 1.35; color: var(--ink-2); }
 .cuaderno-lista li .mono { font-size: 12px; color: var(--muted); }
