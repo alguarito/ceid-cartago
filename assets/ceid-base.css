@@ -189,3 +189,12 @@ a:hover > .go, a:hover .go { transform: rotate(-45deg); }
 @media (prefers-reduced-motion: reduce) {
   * { transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* El recorte horizontal de estas pinturas deja las caras cerca del borde superior. */
+:is(.puertas, .s-pintura, .subs, .tareas) img[src$="/asamblea-de-maestros.webp"] {
+  object-position: 50% 15%;
+}
+:is(.puertas, .s-pintura, .subs) img[src$="/corresponsalia-del-territorio.webp"],
+:is(.s-pintura, .subs) img[src$="/recursos-abiertos.webp"] {
+  object-position: 50% 25%;
+}
