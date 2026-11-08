@@ -1,0 +1,52 @@
+Sitio web del CEID Cartago (https://ceidcartago.com/)
+Centro de Estudios e Investigaciones Docentes, Subdirectiva SUTEV Cartago
+
+Este repositorio tiene dos licencias: una para los contenidos y otra para el código.
+El detalle está en https://ceidcartago.com/licencia.html
+
+
+1. CONTENIDOS: CC BY-SA 4.0
+
+Los textos, las gráficas, las ilustraciones y los documentos propios del CEID
+Cartago tienen la licencia Creative Commons Atribución-CompartirIgual 4.0
+Internacional (CC BY-SA 4.0):
+https://creativecommons.org/licenses/by-sa/4.0/legalcode.es
+
+Un documento que declara su propia licencia se rige por ella.
+
+Esta licencia no cubre:
+- el logo y el nombre del SUTEV, ni las marcas de FECODE y de otras entidades;
+- el Estatuto del SUTEV ni los documentos oficiales de otras entidades;
+- los artículos de la revista «Voces que Transforman», cuyos derechos son de
+  sus autores;
+- los perfiles de docentes ni las fotografías de personas, publicados con la
+  autorización de cada quien (Ley 1581 de 2012);
+- las obras de «Publicaciones de docentes», que conservan la licencia de su
+  autor;
+- las imágenes, los datos y las citas de terceros, que llevan su propia
+  atribución.
+
+
+2. CÓDIGO: MIT
+
+El código del sitio (HTML, CSS y JavaScript) tiene esta licencia:
+
+Copyright (c) 2026 CEID Cartago, Subdirectiva SUTEV Cartago
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
